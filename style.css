@@ -380,3 +380,33 @@ footer {
 
     font-size: 1.8rem !important;
 }
+
+/* =========================================
+   PAGEFIND SEARCH FIXES
+========================================= */
+
+.pagefind-ui__search-input {
+
+    padding-left: 3rem !important;
+
+    height: 60px !important;
+
+    font-family: 'IBM Plex Sans', sans-serif !important;
+
+    font-size: 1.1rem !important;
+}
+
+/* search icon */
+
+.pagefind-ui__search-clear,
+.pagefind-ui__search-icon {
+
+    top: 18px !important;
+}
+
+/* search container */
+
+#search {
+
+    margin-bottom: 3rem;
+}
