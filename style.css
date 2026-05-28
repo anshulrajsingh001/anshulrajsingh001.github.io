@@ -340,4 +340,39 @@ footer {
 
         font-size: 1.6rem;
     }
+
+}
+
+/* =========================================
+   SEARCH BAR
+========================================= */
+
+#search {
+
+    margin-bottom: 3rem;
+}
+
+.pagefind-ui__search-input {
+
+    font-family: 'VT323', monospace !important;
+
+    font-size: 1.6rem !important;
+
+    border: 2px solid #9a816d !important;
+
+    background: #fffaf1 !important;
+
+    padding: 0.7rem !important;
+}
+
+.pagefind-ui__result {
+
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.pagefind-ui__result-title {
+
+    font-family: 'VT323', monospace !important;
+
+    font-size: 1.8rem !important;
 }
