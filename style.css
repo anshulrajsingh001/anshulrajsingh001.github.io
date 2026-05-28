@@ -2,8 +2,8 @@
 
 :root {
 
-    /*/////////////////////////////////////////////
-    /* --bg: #f5efe4;
+    /* brown theme */
+    --bg: #f5efe4;
 
     --paper: #fffaf1;
 
@@ -12,10 +12,9 @@
     --border: #b89b72;
 
     --accent: #7b5a36;
-    /////////////////////////////////////////////
-    */
 
-    --bg: #f7f7f7;
+    /* default theme */
+    /* --bg: #f7f7f7;
 
     --paper: #ffffff;
 
@@ -23,7 +22,7 @@
 
     --border: #d9d9d9;
 
-    --accent: #6a5c53;
+    --accent: #6a5c53; */
 }
 
 * {
@@ -33,6 +32,7 @@
 
 body {
 
+    /* brown theme */
     /* margin: 0;
 
     background: var(--bg);
@@ -48,7 +48,7 @@ body {
     letter-spacing: 0.01em; */
 
 
-
+    /* default theme */
     margin: 0;
 
     background: var(--bg);
@@ -73,6 +73,7 @@ body {
 
 .navbar {
 
+    /* brown theme */
     /* border-bottom: 3px solid var(--border);
 
     padding: 1rem 2rem;
@@ -85,7 +86,7 @@ body {
 
     top: 0; */
 
-
+    /* default theme */
     border-bottom: 1px solid var(--border);
 
     padding: 1rem 2rem;
@@ -175,6 +176,7 @@ h3 {
 
 .post-card {
 
+    /* brown theme */
     /* background: var(--paper);
 
     border: 2px solid rgba(123,90,54,0.18);
@@ -188,7 +190,7 @@ h3 {
     transition: 0.15s ease; */
 
 
-
+    /* default theme */
     background: var(--paper);
 
     border: 1px solid var(--border);
