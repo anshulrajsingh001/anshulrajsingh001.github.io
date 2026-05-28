@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Sans:wght@500;600;700&display=swap');
+
+:root {
+
+    --bg: #f5efe4;
+
+    --paper: #fffaf1;
+
+    --text: #2c241d;
+
+    --border: #b89b72;
+
+    --accent: #7b5a36;
+}
+
+* {
+
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    font-family: 'IBM Plex Sans', sans-serif;
+
+    font-weight: 600;
+
+    line-height: 1.8;
+
+    letter-spacing: 0.01em;
+}
+
+
+/* =========================================
+   TOP NAVBAR
+========================================= */
+
+.navbar {
+
+    border-bottom: 3px solid var(--border);
+
+    padding: 1rem 2rem;
+
+    background: rgba(255,255,255,0.4);
+
+    backdrop-filter: blur(6px);
+
+    position: sticky;
+
+    top: 0;
+}
+
+.navbar a {
+
+    font-family: 'VT323', monospace;
+
+    font-size: 2rem;
+
+    text-decoration: none;
+
+    color: var(--accent);
+
+    margin-right: 2rem;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.container {
+
+    max-width: 950px;
+
+    margin: auto;
+
+    padding: 3rem 2rem;
+}
+
+
+/* =========================================
+   HUGE TITLE
+========================================= */
+
+h1 {
+
+    font-family: 'VT323', monospace;
+
+    font-size: 6rem;
+
+    line-height: 0.9;
+
+    letter-spacing: 0.04em;
+
+    margin-bottom: 1rem;
+
+    text-transform: uppercase;
+
+    font-weight: normal;
+}
+
+h2,
+h3 {
+
+    font-family: 'VT323', monospace;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.04em;
+
+    font-weight: normal;
+}
+
+h2 {
+
+    font-size: 3rem;
+}
+
+h3 {
+
+    font-size: 2.2rem;
+}
+
+
+/* =========================================
+   POSTS
+========================================= */
+
+.post-card {
+
+    background: var(--paper);
+
+    border: 2px solid rgba(123,90,54,0.18);
+
+    border-radius: 12px;
+
+    padding: 1.5rem;
+
+    margin-bottom: 1.5rem;
+
+    transition: 0.15s ease;
+}
+
+.post-card:hover {
+
+    transform: translateY(-4px);
+}
+
+.post-card a {
+
+    text-decoration: none;
+
+    color: inherit;
+}
+
+.post-title {
+
+    font-family: 'VT323', monospace;
+
+    font-size: 2.4rem;
+
+    margin-bottom: 0.5rem;
+}
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+
+    color: var(--accent);
+}
+
+
+/* =========================================
+   BLOCKQUOTES
+========================================= */
+
+blockquote {
+
+    border-left: 5px solid var(--border);
+
+    padding-left: 1rem;
+
+    margin-left: 0;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   CODE
+========================================= */
+
+code,
+pre {
+
+    font-family: 'VT323', monospace;
+
+    background: #eee6d8;
+
+    border-radius: 6px;
+}
+
+code {
+
+    padding: 0.15rem 0.4rem;
+}
+
+pre {
+
+    padding: 1rem;
+
+    overflow-x: auto;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 2rem;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    h1 {
+
+        font-size: 4rem;
+    }
+
+    h2 {
+
+        font-size: 2.3rem;
+    }
+
+    .navbar a {
+
+        font-size: 1.6rem;
+    }
+}
