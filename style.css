@@ -457,3 +457,18 @@ footer {
 
     display: none !important;
 }
+
+/* =========================================
+   PIXEL ART
+========================================= */
+
+.pixel-avatar {
+
+    image-rendering: pixelated;
+
+    image-rendering: crisp-edges;
+
+    width: 72px;
+
+    height: 72px;
+}
