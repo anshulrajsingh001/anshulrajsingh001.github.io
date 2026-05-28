@@ -75,42 +75,15 @@ body {
 
 .navbar {
 
-    /* brown theme */
-    border-bottom: 3px solid var(--border);
+    background: #3a2f2a;
+
+    border-bottom: 2px solid #8d735b;
 
     padding: 1rem 2rem;
-
-    /* default brown */
-    /* background: rgba(183, 134, 103, 0.9); */
-
-    /* Dark Chocolate Brown */
-    /* background: #3a2f2a; */
-
-    /* Muted Coffee Brown */
-    /* background: #5b4a3f; */
-
-    /* Warm Gray Brown */
-    background: #4d4742;
-
-
-
-
-    backdrop-filter: blur(6px);
 
     position: sticky;
 
     top: 0;
-
-    /* default theme */
-    /* border-bottom: 1px solid var(--border);
-
-    padding: 1rem 2rem;
-
-    background: rgba(255,255,255,0.9);
-
-    position: sticky;
-
-    top: 0; */
 }
 
 .navbar a {
@@ -121,17 +94,7 @@ body {
 
     text-decoration: none;
 
-    /*default brown */
-    /* color: var(--accent); */
-
-    /* Dark Chocolate Brown */
-    /* color: #f3e7d3; */
-
-    /* Muted Coffee Brown */
-    /* color: #f5ead9; */
-
-    /* Warm Gray Brown */
-    color: #f2f2f2;
+    color: #f3e7d3;
 
     margin-right: 2rem;
 }
