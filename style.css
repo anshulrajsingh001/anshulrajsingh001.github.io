@@ -33,22 +33,6 @@
 body {
 
     /* brown theme */
-    /* margin: 0;
-
-    background: var(--bg);
-
-    color: var(--text);
-
-    font-family: 'IBM Plex Sans', sans-serif;
-
-    font-weight: 600;
-
-    line-height: 1.8;
-
-    letter-spacing: 0.01em; */
-
-
-    /* default theme */
     margin: 0;
 
     background: var(--bg);
@@ -64,6 +48,24 @@ body {
     letter-spacing: 0.01em;
 
     -webkit-font-smoothing: antialiased;
+
+
+    /* default theme */
+    /* margin: 0;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    font-family: 'IBM Plex Sans', sans-serif;
+
+    font-weight: 600;
+
+    line-height: 1.8;
+
+    letter-spacing: 0.01em;
+
+    -webkit-font-smoothing: antialiased; */
 }
 
 
@@ -74,20 +76,21 @@ body {
 .navbar {
 
     /* brown theme */
-    /* border-bottom: 3px solid var(--border);
+    border-bottom: 3px solid var(--border);
 
     padding: 1rem 2rem;
 
-    background: rgba(255,255,255,1);
+    /* background: rgba(183, 134, 103, 0.9); */
+    background: #3a2f2a;
 
     backdrop-filter: blur(6px);
 
     position: sticky;
 
-    top: 0; */
+    top: 0;
 
     /* default theme */
-    border-bottom: 1px solid var(--border);
+    /* border-bottom: 1px solid var(--border);
 
     padding: 1rem 2rem;
 
@@ -95,7 +98,7 @@ body {
 
     position: sticky;
 
-    top: 0;
+    top: 0; */
 }
 
 .navbar a {
@@ -106,7 +109,8 @@ body {
 
     text-decoration: none;
 
-    color: var(--accent);
+    /* color: var(--accent); */
+    color: #f3e7d3;
 
     margin-right: 2rem;
 }
@@ -177,7 +181,7 @@ h3 {
 .post-card {
 
     /* brown theme */
-    /* background: var(--paper);
+    background: var(--paper);
 
     border: 2px solid rgba(123,90,54,0.18);
 
@@ -187,11 +191,11 @@ h3 {
 
     margin-bottom: 1.5rem;
 
-    transition: 0.15s ease; */
+    transition: 0.15s ease;
 
 
     /* default theme */
-    background: var(--paper);
+    /* background: var(--paper);
 
     border: 1px solid var(--border);
 
@@ -201,7 +205,7 @@ h3 {
 
     margin-bottom: 1.5rem;
 
-    transition: 0.15s ease;
+    transition: 0.15s ease; */
 }
 
 .post-card:hover {
