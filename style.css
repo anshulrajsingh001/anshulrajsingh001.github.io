@@ -46,7 +46,7 @@ body {
 
     padding: 1rem 2rem;
 
-    background: rgba(255,255,255,1);
+    background: rgb(197, 197, 197);
 
     backdrop-filter: blur(6px);
 
@@ -203,7 +203,8 @@ pre {
 
     font-family: 'VT323', monospace;
 
-    background: #eee6d8;
+    /* background: #eee6d8; */
+    background: #ffffff;
 
     border-radius: 6px;
 }
