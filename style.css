@@ -379,6 +379,13 @@ footer {
    SEARCH INPUT
 ========================================= */
 
+/* SEARCH WRAPPER */
+
+.pagefind-ui__form {
+
+    position: relative !important;
+}
+
 .pagefind-ui__search-input {
 
     font-family: 'VT323', monospace !important;
@@ -456,6 +463,10 @@ footer {
    CLEAR BUTTON FIX
 ========================================= */
 
+/* =========================================
+   CLEAR BUTTON FIX
+========================================= */
+
 .pagefind-ui__search-clear {
 
     position: absolute !important;
@@ -478,12 +489,11 @@ footer {
 
     padding: 0 !important;
 
+    margin: 0 !important;
+
     cursor: pointer !important;
 
     box-shadow: none !important;
-}
 
-.pagefind-ui__search-clear:hover {
-
-    opacity: 0.7;
+    z-index: 10 !important;
 }
