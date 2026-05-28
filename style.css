@@ -32,8 +32,6 @@
 
 body {
 
-    padding-top: 90px;
-
     /* brown theme */
     margin: 0;
 
@@ -93,7 +91,7 @@ body {
 
     backdrop-filter: blur(6px);
 
-    position: fixed;
+    position: sticky;
 
     top: 0;
 
@@ -358,19 +356,6 @@ footer {
     margin-bottom: 3rem;
 }
 
-.pagefind-ui__search-input {
-
-    font-family: 'VT323', monospace !important;
-
-    font-size: 1.6rem !important;
-
-    border: 2px solid #9a816d !important;
-
-    background: #fffaf1 !important;
-
-    padding: 0.7rem !important;
-}
-
 .pagefind-ui__result {
 
     border-top: 1px solid rgba(0,0,0,0.08);
@@ -411,4 +396,18 @@ footer {
 #search {
 
     margin-bottom: 3rem;
+}
+
+/* =========================================
+   FIX SEARCH BAR BEHAVIOR
+========================================= */
+
+.pagefind-ui {
+
+    position: static !important;
+}
+
+.pagefind-ui__drawer {
+
+    position: static !important;
 }
