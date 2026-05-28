@@ -39,6 +39,8 @@
 
     <div class="container">
 
+        <div id="search"></div>
+
         <h1>
             ANSHUL<br>
             MATH
@@ -90,4 +92,18 @@
     </footer>
 
 </body>
+
+<link
+    href="/pagefind/pagefind-ui.css"
+    rel="stylesheet">
+
+<script src="/pagefind/pagefind-ui.js"></script>
+
+<script>
+    new PagefindUI({
+        element: "#search",
+        showSubResults: true
+    });
+</script>
+
 </html>
