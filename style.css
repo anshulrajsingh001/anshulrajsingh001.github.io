@@ -80,8 +80,17 @@ body {
 
     padding: 1rem 2rem;
 
+    /* default brown */
     /* background: rgba(183, 134, 103, 0.9); */
-    background: #3a2f2a;
+
+    /* Dark Chocolate Brown */
+    /* background: #3a2f2a; */
+
+    /* Muted Coffee Brown */
+    background: #5b4a3f;
+
+
+
 
     backdrop-filter: blur(6px);
 
@@ -109,8 +118,14 @@ body {
 
     text-decoration: none;
 
+    /*default brown */
     /* color: var(--accent); */
-    color: #f3e7d3;
+
+    /* Dark Chocolate Brown */
+    /* color: #f3e7d3; */
+
+    /* Muted Coffee Brown */
+    color: #f5ead9;
 
     margin-right: 2rem;
 }
