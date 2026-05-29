@@ -534,17 +534,48 @@ pre {
    PIXEL GIF
 ========================================= */
 
+/* =========================================
+   WIZARD CONTAINER
+========================================= */
+
+.wizard-box {
+
+    width: 90px;
+
+    height: 110px;
+
+    position: relative;
+
+    overflow: visible;
+
+    flex-shrink: 0;
+}
+
+/* =========================================
+   PIXEL GIF
+========================================= */
+
 .pixel-gif {
+
+    position: absolute;
+
+    bottom: 27px;
+
+    left: 0;
+
+    width: 50px;
+
     image-rendering: pixelated;
+
     image-rendering: crisp-edges;
 
-    width: 100%;
-    height: auto;
-
     cursor: pointer;
+
     user-select: none;
 
     opacity: 0.95;
+
+    transition: transform 0.12s ease;
 }
 
 /* =========================================

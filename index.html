@@ -50,9 +50,15 @@
 
             </div>
 
-            <div class="gif-wrap">
+            <div class="wizard-box">
+
                 <img id="wizard" src="assets/images/polyKnight_idle.gif" class="pixel-gif">
+
             </div>
+
+            <!-- <div class="gif-wrap">
+                <img id="wizard" src="assets/images/polyKnight_idle.gif" class="pixel-gif">
+            </div> -->
 
         </div>
 
@@ -101,42 +107,213 @@
         <span>Anshul.Math</span>
 
         <span class="footer-links">
-        <a href="https://github.com/anshulrajsingh001" target="_blank" class="icon-link">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" class="icon">
-            GitHub
-        </a>
+            <a href="https://github.com/anshulrajsingh001" target="_blank" class="icon-link">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" class="icon">
+                GitHub
+            </a>
 
-        <span>•</span>
+            <span>•</span>
 
-        <a href="mailto:anshulrajsingh15@gmail.com" class="icon-link">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" class="icon">
-            Email
-        </a>
+            <a href="mailto:anshulrajsingh15@gmail.com" class="icon-link">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" class="icon">
+                Email
+            </a>
         </span>
     </footer>
 
 
+
+
+    <!-- GIF ANIMATIONS AND INTERACTIONS -->
     <script>
 
         const wizard = document.getElementById("wizard");
 
+        /* =========================================
+           GIF PATHS
+        ========================================= */
+
+        const idleGif = "assets/images/polyKnight_idle.gif";
+
+        const duckGif = "assets/images/polyKnight_duck.gif";
+
+        const hurtGif = "assets/images/polyKnight_hurt.gif";
+
+        const deadGif = "assets/images/polyKnight_dead.gif";
+
+        const respawnGif = "assets/images/polyKnight_spawn.gif";
+
+        const sleepGif = "assets/images/polyKnight_sleep.gif";
+
+        /* =========================================
+           SETTINGS
+        ========================================= */
+
+        const comboDelay = 300;
+
+        const sleepDelay = 5000;
+
+        /* =========================================
+           VARIABLES
+        ========================================= */
+
+        let clickCount = 0;
+
+        let clickTimer;
+
+        let sleepTimer;
+
+        let isDead = false;
+
+        let isSleeping = false;
+
+        /* =========================================
+           START SLEEP TIMER
+        ========================================= */
+
+        startSleepTimer();
+
+        /* =========================================
+           CLICK EVENT
+        ========================================= */
+
         wizard.addEventListener("click", () => {
 
-            wizard.style.position = "relative";
-            wizard.style.top = "-6px";
+            if (isDead) return;
 
-            wizard.src = "assets/images/polyKnight_jump.gif";
+            /* =====================================
+               WAKE FROM SLEEP
+            ===================================== */
 
-            setTimeout(() => {
+            if (isSleeping) {
 
-                wizard.src = "assets/images/polyKnight_idle.gif";
-                wizard.style.top = "0px";
+                isSleeping = false;
 
-            }, 700);
+                wizard.src = idleGif;
+
+                resetSleepTimer();
+
+                return;
+            }
+
+            resetSleepTimer();
+
+            clickCount++;
+
+            clearTimeout(clickTimer);
+
+            /* =====================================
+               SINGLE CLICK
+            ===================================== */
+
+            if (clickCount === 1) {
+
+                wizard.src = duckGif;
+
+                clickTimer = setTimeout(() => {
+
+                    wizard.src = idleGif;
+
+                    clickCount = 0;
+
+                }, 1000);
+            }
+
+            /* =====================================
+               DOUBLE CLICK
+            ===================================== */
+
+            else if (clickCount === 2) {
+
+                clearTimeout(clickTimer);
+
+                wizard.src = hurtGif;
+
+                clickTimer = setTimeout(() => {
+
+                    wizard.src = idleGif;
+
+                    clickCount = 0;
+
+                }, 800);
+            }
+
+            /* =====================================
+               TRIPLE CLICK
+            ===================================== */
+
+            else if (clickCount >= 3) {
+
+                clearTimeout(clickTimer);
+
+                clickCount = 0;
+
+                isDead = true;
+
+                wizard.src = deadGif;
+
+                wizard.style.pointerEvents = "none";
+
+                setTimeout(() => {
+
+                    wizard.src = respawnGif;
+
+                }, 1300);
+
+                setTimeout(() => {
+
+                    isDead = false;
+
+                    wizard.src = idleGif;
+
+                    wizard.style.pointerEvents = "auto";
+
+                    resetSleepTimer();
+
+                }, 2400);
+            }
 
         });
 
+        /* =========================================
+           SLEEP SYSTEM
+        ========================================= */
+
+        function startSleepTimer() {
+
+            sleepTimer = setTimeout(() => {
+
+                if (!isDead) {
+
+                    isSleeping = true;
+
+                    wizard.src = sleepGif;
+                }
+
+            }, sleepDelay);
+
+        }
+
+        function resetSleepTimer() {
+
+            clearTimeout(sleepTimer);
+
+            startSleepTimer();
+
+        }
+
     </script>
+
+    /* =========================================
+    SLEEP FUNCTION
+    ========================================= */
+
+    function startSleepTimer() {
+
+    sleepTimer = setTimeout(() => {
+
+    /* only sleep if not dead */
+    if (clickCount < 3) { wizard.src=sleepGif; } }, 5000); } </script>
 
 </body>
 
