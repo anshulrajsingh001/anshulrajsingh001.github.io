@@ -316,7 +316,7 @@ pre {
    FOOTER
 ========================================= */
 
-footer {
+/* footer {
 
     font-family: 'VT323', monospace;
 
@@ -325,6 +325,34 @@ footer {
     padding: 2rem;
 
     opacity: 0.7;
+} */
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1.5rem;
+    padding: 2rem;
+
+    opacity: 0.8;
+    border-top: 1px solid rgba(0,0,0,0.1);
+
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.footer a {
+    text-decoration: none;
+    color: var(--accent);
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
 }
 
 
@@ -338,6 +366,12 @@ footer {
         flex-direction: column;
         align-items: flex-start;
         gap: 0rem;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
     }
 
     h1 {
@@ -550,4 +584,24 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.icon-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    text-decoration: none;
+    color: var(--accent);
+
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+
+    filter: invert(20%) sepia(30%) saturate(400%) hue-rotate(350deg);
+    /* makes icons match your brown theme */
 }
