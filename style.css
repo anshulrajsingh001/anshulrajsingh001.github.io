@@ -165,7 +165,6 @@ h1 {
 
     font-family: 'VT323', monospace;
 
-    /* font-size: 6rem; */
     font-size: clamp(2.5rem, 8vw, 6rem);
 
     line-height: 0.9;
@@ -243,6 +242,8 @@ h3 {
 
 .post-card a {
 
+    font-family: 'Computer Modern Roman', monospace;
+
     text-decoration: none;
 
     color: inherit;
@@ -316,6 +317,8 @@ pre {
 ========================================= */
 
 footer {
+
+    font-family: 'VT323', monospace;
 
     text-align: center;
 
@@ -508,27 +511,6 @@ footer {
 /* =========================================
    PIXEL GIF
 ========================================= */
-
-/* .pixel-gif {
-
-    image-rendering: pixelated;
-
-    image-rendering: crisp-edges;
-
-    width: clamp(40px, 10vw, 50px);
-
-    height: auto;
-
-    cursor: pointer;
-
-    user-select: none;
-
-    transition: transform 0.12s ease;
-
-    margin-left: 5px;
-
-    opacity: 0.95;
-} */
 
 .pixel-gif {
     image-rendering: pixelated;
