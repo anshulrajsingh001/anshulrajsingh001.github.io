@@ -356,6 +356,13 @@ pre {
         gap: 0rem;
     }
 
+    .pixel-gif {
+
+        margin-left: 20px;
+
+        /* transform: translateY(12px); */
+    }
+
     .footer {
         flex-direction: column;
         gap: 0.5rem;
@@ -383,7 +390,6 @@ pre {
     .pixel-gif {
         transform: translateY(25px);
         margin-top: -5px; /* GIF to sit slightly offset under the title (like an RPG companion sprite beside a logo) */
-        margin-left: -4px;
     }
 }
 
