@@ -149,8 +149,6 @@
            SETTINGS
         ========================================= */
 
-        const comboDelay = 300;
-
         const sleepDelay = 5000;
 
         /* =========================================
@@ -203,7 +201,7 @@
             clearTimeout(clickTimer);
 
             /* =====================================
-               SINGLE CLICK
+               SINGLE CLICK → DUCK
             ===================================== */
 
             if (clickCount === 1) {
@@ -220,7 +218,7 @@
             }
 
             /* =====================================
-               DOUBLE CLICK
+               DOUBLE CLICK → HURT
             ===================================== */
 
             else if (clickCount === 2) {
@@ -239,7 +237,7 @@
             }
 
             /* =====================================
-               TRIPLE CLICK
+               TRIPLE CLICK → DEATH
             ===================================== */
 
             else if (clickCount >= 3) {
@@ -250,15 +248,21 @@
 
                 isDead = true;
 
+                clearTimeout(sleepTimer);
+
                 wizard.src = deadGif;
 
                 wizard.style.pointerEvents = "none";
+
+                /* respawn animation */
 
                 setTimeout(() => {
 
                     wizard.src = respawnGif;
 
                 }, 1300);
+
+                /* back to idle */
 
                 setTimeout(() => {
 
@@ -303,17 +307,6 @@
         }
 
     </script>
-
-    /* =========================================
-    SLEEP FUNCTION
-    ========================================= */
-
-    function startSleepTimer() {
-
-    sleepTimer = setTimeout(() => {
-
-    /* only sleep if not dead */
-    if (clickCount < 3) { wizard.src=sleepGif; } }, 5000); } </script>
 
 </body>
 
