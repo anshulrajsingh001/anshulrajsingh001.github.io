@@ -509,7 +509,7 @@ footer {
    PIXEL GIF
 ========================================= */
 
-.pixel-gif {
+/* .pixel-gif {
 
     image-rendering: pixelated;
 
@@ -528,8 +528,20 @@ footer {
     margin-left: 5px;
 
     opacity: 0.95;
-}
+} */
 
+.pixel-gif {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+
+    width: 100%;
+    height: auto;
+
+    cursor: pointer;
+    user-select: none;
+
+    opacity: 0.95;
+}
 
 /* =========================================
    TEXT SELECTION
@@ -547,4 +559,13 @@ footer {
     background: #a1866f;
 
     color: #fffaf1;
+}
+
+.gif-wrap {
+    width: clamp(45px, 8vw, 70px);
+    height: clamp(45px, 8vw, 70px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
