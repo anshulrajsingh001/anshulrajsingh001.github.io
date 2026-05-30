@@ -87,7 +87,7 @@ body {
 
     align-items: center;
 
-    padding: 1rem 2rem;
+    padding: 1rem 0rem;
 
     /* default brown */
     /* background: rgba(183, 134, 103, 0.9); */
@@ -124,7 +124,8 @@ body {
     max-width: 950px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 
     display: flex;
     align-items: center;
@@ -208,8 +209,10 @@ body {
 
 .container {
     max-width: 950px;
+    width: 100%;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     flex: 1;
 }
 
@@ -437,22 +440,10 @@ pre {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-    }
-
-    .nav-left {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        padding-left: 0;
-        gap: 0;
-    }
-
-    .navbar a {
-        font-size: clamp(0.1rem, 4vw, 1.5rem);
-        margin-right: 0;
-        font-size: 1.3rem;
+        /* width: 100%; */
+        margin: 0 auto;
+        /* padding-left: 2rem;
+        padding-right: 2rem; */
     }
 
     .nav-search {
@@ -462,15 +453,27 @@ pre {
     }
 
     .nav-search input {
-        width: clamp(120px, 100vw, 200px);
-        height: clamp(32px, 6vw, 40px);
+        width: clamp(200px, 100vw, 280px);
+        height: clamp(32px, 6vw, 50px);
     }
 
-    /* .navbar a {
-        font-size: clamp(1.1rem, 4vw, 1.5rem);
-        margin-right: 0;
-    } */
+    .nav-left {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
+        outline: 2px solid green;
+
+        padding-left: 0;
+        gap: 0;
+    }
+
+    .navbar a {
+        font-size: clamp(2rem, 7vw, 3rem);
+        margin-right: 0;
+        /* font-size: 1.3rem; */
+    }
 
 
     .hero {
@@ -514,11 +517,6 @@ pre {
     h2 {
 
         font-size: 2.3rem;
-    }
-
-    .navbar a {
-
-        font-size: 1.6rem;
     }
 
 }
