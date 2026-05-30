@@ -52,15 +52,26 @@
 
                 </div>
 
-                <div class="wizard-box">
+                <div class="wizard-container">
 
-                    <img id="wizard" src="assets/images/polyKnight_idle.gif" class="pixel-gif">
+                    <div class="wizard-box">
+                        <img id="wizard" src="assets/images/polyKnight_idle.gif" class="pixel-gif">
+                    </div>
+
+                    <div class="wizard-stats">
+                        <div>Level 21 Mathematician</div>
+                        <div>HP: ∞</div>
+                        <div>Focus: Complex Analysis</div>
+                        <div>Mana: Coffee</div>
+                    </div>
 
                 </div>
 
-                <!-- <div class="gif-wrap">
-                <img id="wizard" src="assets/images/polyKnight_idle.gif" class="pixel-gif">
-            </div> -->
+                <!-- <div class="wizard-box">
+
+                    <img id="wizard" src="assets/images/polyKnight_idle.gif" class="pixel-gif">
+
+                </div> -->
 
             </div>
 
@@ -90,23 +101,49 @@
 
                     <a href="posts/generating-functions.html">
 
+                        <div class="post-tag">
+                            COMBINATORICS
+                        </div>
+
                         <div class="post-title">
                             GENERATING FUNCTIONS
                         </div>
 
+                        <div class="post-date-small">
+                            May 2026
+                        </div>
+
                         <p>
-                            Introduction to generating functions for newbies.
+                            Introduction to generating functions
+                            for newbies.
                         </p>
 
                     </a>
 
                 </div>
             </div>
+        </div>
 
         </div>
 
         <!-- GIF ANIMATIONS AND INTERACTIONS -->
         <script>
+
+            const loot = [
+
+                "📜 Analysis",
+
+                "📘 Euler",
+
+                "🧪 Complex Numbers",
+
+                "📐 Geometry",
+
+                "✨ Morera's",
+
+                "🌀 Riemann Sphere"
+
+            ];
 
             const wizard = document.getElementById("wizard");
 
@@ -153,10 +190,49 @@
             startSleepTimer();
 
             /* =========================================
+               Random Loot Function
+            ========================================= */
+
+            function spawnLoot() {
+
+                const item =
+                    loot[Math.floor(Math.random() * loot.length)];
+
+                const drop = document.createElement("div");
+
+                drop.textContent = item;
+
+                drop.classList.add("loot-drop");
+
+                document.body.appendChild(drop);
+
+                const rect =
+                    wizard.getBoundingClientRect();
+
+                drop.style.left =
+                    rect.left + "px";
+
+                drop.style.top =
+                    rect.top + "px";
+
+                setTimeout(() => {
+
+                    drop.remove();
+
+                }, 2000);
+            }
+
+            /* =========================================
                CLICK EVENT
             ========================================= */
 
             wizard.addEventListener("click", () => {
+
+                if (Math.random() < 0.15) {
+
+                    spawnLoot();
+
+                }
 
                 if (isDead) return;
 

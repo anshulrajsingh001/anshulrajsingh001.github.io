@@ -561,10 +561,6 @@ pre {
 }
 
 /* =========================================
-   PIXEL GIF
-========================================= */
-
-/* =========================================
    WIZARD CONTAINER
 ========================================= */
 
@@ -579,6 +575,84 @@ pre {
     overflow: visible;
 
     flex-shrink: 0;
+}
+
+/* =========================================
+   WIZARD BOX
+========================================= */
+
+.wizard-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* =========================================
+   WIZARD STATS
+========================================= */
+
+.wizard-stats {
+
+    position: absolute;
+
+    left: 70px;
+    top: -10px;
+
+    width: 220px;
+
+    padding: 0.8rem;
+
+    background: rgba(91, 74, 63, 0.80);
+
+    backdrop-filter: blur(6px);
+
+    border: 2px solid #9a816d;
+
+    color: #f5ead9;
+
+    font-family: 'VT323', monospace;
+
+    font-size: 1.3rem;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: translateY(5px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+
+    z-index: 100;
+}
+
+/* Show stats on hover */
+.wizard-container:hover .wizard-stats {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.wizard-stats::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -10px;
+
+    top: 20px;
+
+    border-width: 8px;
+
+    border-style: solid;
+
+    border-color:
+        transparent
+        #9a816d
+        transparent
+        transparent;
 }
 
 /* =========================================
@@ -746,4 +820,60 @@ p {
 
     border-right: 2px solid #9a816d;
     border-bottom: 2px solid #9a816d;
+}
+
+.post-tag {
+
+    display: inline-block;
+
+    font-family: 'VT323', monospace;
+
+    font-size: 1rem;
+
+    letter-spacing: 0.1em;
+
+    color: var(--accent);
+
+    margin-bottom: 0.5rem;
+}
+
+.post-date-small {
+
+    opacity: 0.6;
+
+    font-size: 0.85rem;
+
+    margin-bottom: 0.75rem;
+}
+
+.loot-drop {
+
+    position: fixed;
+
+    font-family: 'VT323', monospace;
+
+    font-size: 1.4rem;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    animation: floatUp 2s forwards;
+}
+
+@keyframes floatUp {
+
+    from {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+    to {
+
+        opacity: 0;
+
+        transform: translateY(-50px);
+    }
 }
