@@ -81,6 +81,12 @@ body {
     /* brown theme */
     /* border-bottom: 3px solid var(--border); */
 
+    display: flex;
+
+    justify-content: flex-start;
+
+    align-items: center;
+
     padding: 1rem 2rem;
 
     /* default brown */
@@ -112,6 +118,36 @@ body {
     position: sticky;
 
     top: 0; */
+}
+
+.nav-left {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-search input {
+
+    width: 220px;
+
+    height: 38px;
+
+    padding: 0 0.8rem;
+
+    background: rgba(245, 234, 217, 0.08);
+
+    border: 2px solid #9a816d;
+
+    color: #f5ead9;
+
+    font-family: 'VT323', monospace;
+
+    font-size: 1.4rem;
+
+    outline: none;
+}
+
+.nav-search input::placeholder {
+    color: rgba(245, 234, 217, 0.6);
 }
 
 .navbar a {
@@ -377,6 +413,27 @@ pre {
 
 @media (max-width: 700px) {
 
+    .nav-search {
+        width: 100%;
+    }
+
+    .nav-search .pagefind-ui__results {
+        width: 100%;
+        right: 0;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .nav-left {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
     .hero {
         flex-direction: column;
         align-items: flex-start;
@@ -433,117 +490,6 @@ pre {
         transform: translateY(25px);
         /* margin-top: -5px; GIF to sit slightly offset under the title (like an RPG companion sprite beside a logo) */
     }
-}
-
-/* =========================================
-   SEARCH BAR
-========================================= */
-
-#search {
-
-    margin-bottom: 3rem;
-}
-
-.pagefind-ui {
-
-    position: static !important;
-
-    --pagefind-ui-scale: 1.0;
-
-    --pagefind-ui-primary: #7b5a36;
-
-    --pagefind-ui-text: #2c241d;
-
-    --pagefind-ui-background: #fffaf1;
-
-    --pagefind-ui-border: #9a816d;
-
-    --pagefind-ui-tag: #eee0ca;
-
-    --pagefind-ui-border-width: 2px;
-}
-
-/* =========================================
-   SEARCH INPUT
-========================================= */
-
-/* SEARCH WRAPPER */
-
-.pagefind-ui__form {
-
-    position: relative !important;
-}
-
-.pagefind-ui__search-input {
-
-    font-family: 'VT323', monospace !important;
-
-    font-size: 2rem !important;
-
-    line-height: 64px !important;
-
-    background: #fffaf1 !important;
-
-    color: #2c241d !important;
-
-    border: 2px solid #9a816d !important;
-
-    height: 64px !important;
-
-    padding: 0 1rem 0 3.5rem !important;
-
-    border-radius: 0 !important;
-
-    box-shadow: none !important;
-
-    outline: none !important;
-}
-
-.pagefind-ui__search-input:focus {
-
-    border-color: #7b5a36 !important;
-}
-
-/* =========================================
-   SEARCH ICON
-========================================= */
-
-.pagefind-ui__search-icon {
-
-    position: absolute !important;
-
-    left: 1rem !important;
-
-    top: 20px !important;
-}
-
-/* =========================================
-   RESULTS
-========================================= */
-
-.pagefind-ui__result {
-
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-
-    padding-top: 1rem;
-
-    margin-top: 1rem;
-}
-
-.pagefind-ui__result-title {
-
-    font-family: 'VT323', monospace !important;
-
-    font-size: 1.8rem !important;
-}
-
-/* =========================================
-   CLEAR BUTTON
-========================================= */
-
-.pagefind-ui__search-clear {
-
-    display: none !important;
 }
 
 /* =========================================
@@ -732,7 +678,7 @@ p {
 
 .download-buttons a {
     box-shadow:
-        2px 2px 0px rgba(0,0,0,0.25);
+        2px 2px 0px rgba(0, 0, 0, 0.25);
 
     background: #5b4a3f;
     color: #f5ead9;
@@ -756,7 +702,7 @@ p {
 .download-buttons a:hover {
 
     box-shadow:
-        0px 0px 0px rgba(0,0,0,0.25);
+        0px 0px 0px rgba(0, 0, 0, 0.25);
 
     transform: translateY(2px);
 
@@ -766,3 +712,4 @@ p {
     border-right: 2px solid #9a816d;
     border-bottom: 2px solid #9a816d;
 }
+

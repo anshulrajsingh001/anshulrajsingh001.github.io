@@ -40,8 +40,6 @@
 
         <div class="container">
 
-            <!-- <div id="search"></div> -->
-
             <div class="hero">
 
                 <div class="hero-text">
@@ -53,8 +51,8 @@
                 </div>
 
                 <div class="wizard-box">
-                    <img id="wizard" src="assets/images/polyKnight_idle.gif" class="pixel-gif">
-                </div>
+                        <img id="wizard" src="assets/images/polyKnight_idle.gif" class="pixel-gif">
+                    </div>
             </div>
 
             <p>
@@ -360,5 +358,16 @@
     </script>
 
 </body>
+
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+<script src="/pagefind/pagefind-ui.js"></script>
+
+<script>
+    new PagefindUI({
+        element: "#search",
+        showSubResults: true
+    });
+</script>
 
 </html>
