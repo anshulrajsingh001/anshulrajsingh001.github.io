@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Generating Functions</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$']]
+            }
+        };
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <a href="../index.html">HOME</a>
+
+    </nav>
+
+    <div class="container">
+
+        <div class="post-header">
+
+            <div class="post-meta">
+
+                <h1>Generating Functions</h1>
+
+                <p class="post-date">
+                    May 29, 2026
+                </p>
+
+            </div>
+
+            <div class="download-buttons">
+
+                <a href="../assets/notes/doc.pdf" download>
+                    PDF
+                </a>
+
+                <a href="../assets/notes/doc.tex" download>
+                    TeX
+                </a>
+
+            </div>
+
+        </div>
+
+        <p>
+            Without talking too much, I will jump right into the problems and try to solve them, because there
+            is no better way to learn math than by doing it. Here is the first problem:
+
+        <p>
+            1. Show that the number of ways to write a positive integer $n$ as a sum of distinct positive integers is
+            equal
+            to the number of ways to write $n$ as a sum of odd (not necessarily distinct) positive integers.
+        </p>
+
+        <p>
+            Let's try some examples to get a better understanding. Take $n=5$. Writing it as a sum of distinct
+            positive integers, we have:
+            \[
+            5 = 5,\quad 1+4,\quad 2+3.
+            \]
+            For the second part (odd parts, repetition allowed), we have:
+            \[
+            5 = 5,\quad 3+1+1,\quad 1+1+1+1+1.
+            \]
+            So we have three ways in both cases.
+            \[
+            6 = 6,\quad 1+5,\quad 2+4,\quad 1+2+3,
+            \]
+            and the odd partitions are:
+            \[
+            6 = 5+1,\quad 3+3,\quad 3+1+1+1,\quad 1+1+1+1+1+1.
+            \]
+            Again, the counts match. Seems quite reasonable why someone could have conjectured this. But how
+            does one actually prove it?
+
+            Before we try to solve it, let's look at another problem.
+
+        <p>
+            2. Can there be integers $a_1 < a_2 < \cdots < a_n$ such that the differences $a_i - a_j$, $i> j$, take on
+                all
+                values in
+                \[
+                \{1,2,3,\ldots,\tfrac{n(n-1)}{2}\}?
+                \]
+        </p>
+
+        <p>
+            This one looks more complicated, so let's just take a small value and play around. Take $n=4$. Try to find
+            such numbers yourself before reading on. After some trial and error, you will find that $0,1,4,6$ works. The
+            differences are:
+            \[
+            1, 4, 6, 3, 5, 2,
+            \]
+            so we get all numbers from $1$ to $6$.
+
+            So we understand the problem now, but again, how do we approach something like this in general?
+
+            If you think about both problems for a while, you will notice the same issue--we do not have a good way to
+            represent these sums and differences and keep track of them at the same time. We need a better way to
+            \emph{encode} this information.
+
+            \section{Generating Functions}
+            Let me get the definition out of the way first.
+            \begin{definition}
+            An infinite power series $a_0 + a_1x + a_2x^2 + \cdots$ is called a \textbf{generating series} for the
+            sequence $a_0, a_1, a_2, \ldots$. When we can write this series in a compact form, we call it a
+            \textbf{generating function} for the sequence.
+            \end{definition}
+
+            \begin{remark}
+            Two power series are equal if and only if the coefficients of $x^n$ are equal for all $n$. This is why
+            generating functions are useful: they allow us to turn counting problems into algebraic identities.
+            \end{remark}
+
+            \noindent This is not something out of the ordinary; I'm sure you have seen this before. For example,
+            the generating function for the sequence $1, 1, 1, \ldots$ is $(1-x)^{-1}$, because
+            \[
+            \frac{1}{1-x} = 1 + x + x^2 + \cdots.
+            \]
+            Here is another example: the generating function for the sequence $0, 1, 0, 1, 0, 1, \ldots$ is
+            $x(1-x^2)^{-1}$, because
+            \[
+            \frac{x}{1-x^2} = x + x^3 + x^5 + \cdots.
+            \]
+
+            \bigskip
+
+            \noindent At this point, there is one small technical issue that we should at least mention.
+
+            \noindent We have been writing infinite sums like
+            \[
+            1 + x + x^2 + x^3 + \cdots = \frac{1}{1-x},
+            \]
+            and treating them like ordinary algebraic objects. But strictly speaking, this only makes sense when the
+            series actually \emph{converges}. As you can clearly see, if you put $x=2$, the series becomes $1 + 2 +
+            4 + 8 + \cdots$, which diverges to infinity but the right side is $-1$. So we need to be careful about
+            when we can actually use these two sides interchangeably.
+
+            Roughly speaking, convergence means that if we keep adding more and more terms, the sum
+            approaches a well-defined value. For example, the series above converges when $|x| < 1$. For our purposes,
+                we will simply assume $|x| < 1$ and not worry too much about these details. Under this assumption, all
+                the manipulations we perform with these series and products are justified. In fact, in many
+                combinatorial problems, we treat these series purely formally, without worrying about convergence at
+                all. Here is another example. Consider the product \[ (*)\quad A(x)=(1+x)(1+x^2)(1+x^3)\cdots. \] Each
+                bracket $(1+x^k)$ gives us a choice: \begin{itemize} \item choose $1$ (ignore the number) \item choose
+                $x^k$ (include the number $k$). \end{itemize} So when we expand this product, every term we get
+                corresponds to choosing some distinct numbers and adding them up. \bigskip \noindent In particular, the
+                coefficient of $x^n$ tells us how many ways we can form $n$. To see this clearly, take $n=5$. The term
+                $x^5$ can appear in the following three ways: \begin{itemize} \item $x^5=x^5 \longleftrightarrow 5=5$,
+                \item $x \cdot x^4=x^{1+4} \longleftrightarrow 1+4=5$, \item $x^2 \cdot x^3=x^{2+3} \longleftrightarrow
+                2+3=5$. \end{itemize} These correspond exactly to \[ 5,\quad 1+4,\quad 2+3. \] And the coefficient of
+                $x^5$ in $A(x)$ is $3$, which matches the number of ways to write $5$ as a sum of distinct positive
+                integers. So the coefficient of $x^n$ in $A(x)$ counts the number of ways to write $n$ as a sum of
+                distinct positive integers. \begin{remark} Each bracket in $(*)$ is a generating function in itself
+                where all but two of the coefficients are zero. Because we have already established that we can do the
+                standard manipulations with these series, we can multiply them together and get a new generating
+                function. We won't have any issues as we already have taken $|x| < 1$. \end{remark} \section{Solutions}
+                We now have a function $A(x)$ in which the coefficient of $x^n$ counts the number of ways to write $n$
+                as a sum of distinct positive integers. Now we do the same thing for odd numbers. Try finding this
+                generating function yourself!\\ \noindentHere is the generating function for odd numbers \[ B(x)=(1 + x
+                + x^{2} + x^{3} + \cdots)(1 + x^3 + x^{6} + x^{9} + \cdots)\cdots=\prod_{k=1}^{\infty}
+                \frac{1}{1-x^{2k-1}}. \] \noindent The coefficient of $x^n$ in this expansion counts the number of ways
+                to write $n$ as a sum of odd positive integers (with repetition allowed). Convince yourself that this is
+                true for $n=10$. How many times is the sum $1+9$ counted? So now we have reduced the problem to showing
+                that (why?) \[ A(x)=B(x). \] We compute \begin{align*} \frac{A(x)}{B(x)}
+                &=[(1+x)(1+x^2)(1+x^3)\cdots]\cdot[(1-x)(1-x^3)(1-x^5)\cdots]. \end{align*} Notice that $B(x)$ only
+                contains factors of the form $(1 - x^{\text{odd}})$, so we begin by pairing all the odd terms. Note that
+                \[ (1+x^k)(1-x^k)=1 - x^{2k}. \] \noindent So we pair factors as follows: \begin{itemize} \item $(1+x)$
+                with $(1-x)$ gives $1-x^2$ \item $(1+x^3)$ with $(1-x^3)$ gives $1-x^6$ \item $(1+x^5)$ with $(1-x^5)$
+                gives $1-x^{10}$ \end{itemize} \noindent This takes care of all the odd powers. The even powers
+                $(1+x^2),(1+x^4),(1+x^6),\dots$ are left over. So we get \[(1-x^2)(1-x^6)(1-x^{10})\cdots \cdot
+                (1+x^2)(1+x^4)(1+x^6)\cdots. \] Now we repeat the same idea again, pair the terms with same powers. If
+                we keep doing this, we see that everything keeps cancelling in this way, pushing the powers higher and
+                higher. As this process continues, every factor eventually gets paired and absorbed into higher powers.
+                Since we are working with formal power series (or with $\mid x\mid < 1$), these higher powers become
+                negligible in the limit, leaving only $1$. So \[ \frac{A(x)}{B(x)}=1, \] and hence $A(x)=B(x)$. This
+                shows that the coefficients of $x^n$ in $A(x)$ and $B(x)$ are equal, which is exactly what we wanted to
+                prove. $\square$ I will write the solution formally just to show how short it becomes once everything is
+                set up.\\ Let $A(x)=(1+x)(1+x^2)(1+x^3)\cdots$ and $B(x)=\prod_{k=1}^{\infty} \frac{1}{1-x^{2k-1}}$. The
+                coefficient of $x^n$ in $A(x)$ counts partitions into distinct parts, and the coefficient of $x^n$ in
+                $B(x)$ counts partitions into odd parts. Since \begin{align*} \frac{A(x)}{B(x)}
+                &=[(1+x)(1+x^2)(1+x^3)\cdots]\cdot[(1-x)(1-x^3)(1-x^5)\cdots]\\ &=(1-x^2)(1-x^6)(1-x^{10})\cdots \cdot
+                (1+x^2)(1+x^4)(1+x^6)\cdots\\ &\hspace{0.2cm}\vdots\\ &=1, \end{align*} $A(x)=B(x)$ showing the
+                coefficients are equal. $\square$ Here are a few exercises to get used to this idea.\footnote{Write some
+                code to verify your answers.} \begin{enumerate}[label=(\alph*)] \item Find the number of positive
+                integer solutions of $x+y+z=10$ using generating functions. What if $x,y,z$ are allowed to be zero?
+                \item Find the number of solutions of $x+y+z=50$ such that $x$ is even, $y$ is odd and $z$ is a multiple
+                of $3$. \end{enumerate} \section{The Second Problem (A Glimpse)} \noindent Now let's briefly come back
+                to the second problem. The idea is to build a generating function \[ A(x)=\sum_{i=1}^{n} x^{a_i} \]
+                \noindent and then look at \[ A(x)A(x^{-1}), \] which encodes all differences $a_i - a_j$. With some
+                clever manipulation (and a bit of complex numbers), one can show that such a configuration cannot exist
+                for $n \geq 5$. \bigskip \noindent I will admit that this solution is quite technical and not very
+                intuitive at first glance. Still, I will include it at the end of this document for completeness. I
+                would encourage you to read through it and see how much you can understand, but do not worry if you
+                cannot follow everything. Do not let it intimidate you--these kinds of arguments take time and
+                experience to fully appreciate. \section{Solutions to Problem 2} Our first job is to find a generating
+                function that represents the differences $a_i - a_j$, $i> j$. Try it yourself before reading on. The
+                simplest function we know is
+                $A(x) = \sum_{i=1}^{n} x^{a_i}$. After a bit of thought, you will see that, if you multiply $A(x)$
+                by $A(x^{-1})$, you will get a generating function that has the differences as the exponents of $x$.
+                We have:
+                \begin{align*}
+                A(z)A(z^{-1}) &= \sum_{\substack{i, j = 1\\i > j}}^{n} z^{a_i - a_j} + n + \sum_{\substack{i, j =
+                1\\i < j}}^{n} z^{a_i - a_j}. \end{align*} I have replaced $x$ with $z$, as we'll now be working with
+                    complex numbers. Now, look at the first sum: if the problem statement is true, then this sum will be
+                    $z^1 + z^2 + \cdots + z^N$, where $N=\frac{n(n-1)}{2}=\binom{n}{2}$, because there are exactly
+                    $\binom{n}{2}$ pairs $(i, j)$ with $i> j$. Also, to simplify the expression, note
+                    that the second sum is just the first sum with $z$ replaced by $z^{-1}$. So, we have
+                    \begin{align*}
+                    A(z)A(z^{-1}) &= z^1 + z^2 + \cdots + z^N + n + z^{-1} + z^{-2} + \cdots + z^{-N}\\
+                    &= \sum_{k = -N}^{N} z^k + n - 1\\
+                    &= \frac{z^{N+1} - z^{-N}}{z - 1} + n - 1. \quad (\text{Summing the geometric series.})
+                    \end{align*}
+                    To simplify, let us take $z$ to be on the unit circle; that is, $z = e^{i\theta}$ for some
+                    $\theta$. The left side becomes $A(z)A(z^{-1}) = A(z)\overline{A(z)} = |A(z)|^2$. Whereas, on
+                    the right side, after multiplying the numerator and the denominator by $z^{-1/2}$, we have
+                    \begin{align*}
+                    \frac{z^{N+1} - z^{-N}}{z - 1} + n - 1 = \frac{z^{N+\frac{1}{2}} -
+                    z^{-N-\frac{1}{2}}}{z^{\frac{1}{2}} - z^{-\frac{1}{2}}} + n - 1 =
+                    \frac{\sin((N+\frac{1}{2})\theta)}{\sin(\frac{\theta}{2})} + n - 1.
+                    \end{align*}
+                    We used the formula $e^{ix} - e^{-ix} = 2i\sin(x)$ to get the last equality. Therefore, we have
+                    \begin{align*}
+                    |A(z)|^2 = \frac{\sin((N+\frac{1}{2})\theta)}{\sin(\frac{\theta}{2})} + n - 1 =
+                    \frac{\sin(\frac{n^2-n+1}{2}\theta)}{\sin(\frac{\theta}{2})} + n - 1.
+                    \end{align*}
+
+                    \noindent This equation seems a bit complicated. If we were to find such integers $a_1 < a_2 <
+                        \cdots < a_n$ that satisfy the problem statement, then there is no way this equation would help
+                        us find them, because we've already gotten rid of all the information about the $a_i$'s. But if
+                        these integers do exist for some $n$, then, going back to the starting point, we will have
+                        $\binom{n}{2}$ equations and $n$ variables, i.e., these $\binom{n}{2}$ equations, differences
+                        take on consecutive values, which seems like it shouldn't be true for large $n$, even though it
+                        worked for $n=4$. \noindent Although surprising stuff happens all the time, we should at least
+                        check if this equation can even be true for all $\theta$ when $n$ is large.\\ \noindent Indeed,
+                        it turns out that this equation does not hold for all $\theta$ and large $n$. One simple check
+                        you can do is just graph it. You'll see that this starts to fail for $n \geq 5$. But we can also
+                        show this analytically. Take $\theta=\frac{3\pi}{n^2-n+1}$. In that case: \begin{align*}
+                        \sin\left(\frac{\theta}{2}\right) < \frac{\theta}{2} &\Rightarrow \frac{1}{\sin(\theta/2)}>
+                        \frac{2}{\theta}\\
+                        &\Rightarrow -\frac{1}{\sin(\theta/2)} < -\frac{2}{\theta}=-\frac{(2n^2-2n+2)}{3\pi}.
+                            \end{align*} We want to see when $-(2n^2-2n+1)/3\pi < -(n-1)$, which will give us the
+                            required contradiction. Well, if you check, you'll find that this happens for all $n \geq
+                            5$. So, for $n \geq 5$, there do not exist integers $a_1 < a_2 < \cdots < a_n$ such that the
+                            differences $a_i - a_j$, $i> j$, take on all values in the set $\{1, 2, 3,
+                            \ldots, \frac{n(n-1)}{2}\}$. $\square$
+
+                            \bigskip
+
+                            \section{Practice Problems}
+
+                            \numproblem{1}{
+                            Look up how to solve recurrence relations using generating functions.
+                            }
+
+                            \numproblem{2}{
+                            Find the number of non negative integer solutions of $x_1 + x_2 + \cdots + x_k = n$
+                            using generating functions.
+                            }
+
+                            \numproblem{3}{
+                            Use generating functions to show that every positive integer can be written in exactly
+                            one way as a sum of distinct powers of $2$.
+                            }
+
+                            \numproblem{4}{
+                            Find a closed form for the generating function
+                            \[
+                            \sum_{n=0}^{\infty} \binom{n+k}{k} x^n.
+                            \](\textbf{Don't differentiate!})
+                            }
+
+                            \numproblem{5}{
+                            Let $A=\{a_1, \dots, a_n\}$ and $B=\{b_1, \dots, b_n\}$ be two subsets of positive
+                            integers with $A\ne B$ but $A+A=B+B$ where $A+A=\{a_i+a_j \mid a_i, a_j\in A\}$. The
+                            number of repetitions in each set is also the same. Show that $n$ is a perfect power of
+                            $2$.
+                            }
+                            % \section{References}
+
+                            \begin{thebibliography}{99}
+
+                            \bibitem{Newman}
+                            Newman, D. J. Analytic Number Theory. Springer.
+
+                            \end{thebibliography}
+        </p>
+
+    </div>
+
+</body>
+
+</html>
