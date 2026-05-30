@@ -120,34 +120,54 @@ body {
     top: 0; */
 }
 
-.nav-left {
+.nav-inner {
+    max-width: 950px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
 }
+
 
 .nav-search input {
 
-    width: 220px;
+    width: clamp(180px, 25vw, 280px);
+    height: 42px;
 
-    height: 38px;
+    padding: 0 12px;
 
-    padding: 0 0.8rem;
-
-    background: rgba(245, 234, 217, 0.08);
-
-    border: 2px solid #9a816d;
+    background: #4a3c33;
 
     color: #f5ead9;
 
-    font-family: 'VT323', monospace;
+    border-top: 2px solid #9a816d;
+    border-left: 2px solid #9a816d;
 
-    font-size: 1.4rem;
+    border-right: 2px solid #312721;
+    border-bottom: 2px solid #312721;
+
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
 
     outline: none;
 }
 
+.nav-search input:focus {
+
+    border-top: 2px solid #c2a88f;
+    border-left: 2px solid #c2a88f;
+
+    border-right: 2px solid #312721;
+    border-bottom: 2px solid #312721;
+}
+
 .nav-search input::placeholder {
-    color: rgba(245, 234, 217, 0.6);
+
+    color: rgba(245, 234, 217, 0.55);
+    letter-spacing: 0.08em;
 }
 
 .navbar a {
@@ -411,28 +431,47 @@ pre {
    MOBILE
 ========================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 500px) {
 
-    .nav-search {
-        width: 100%;
-    }
-
-    .nav-search .pagefind-ui__results {
-        width: 100%;
-        right: 0;
-    }
-
-    .navbar {
+    .nav-inner {
         flex-direction: column;
-        align-items: stretch;
-        gap: 0.75rem;
+        align-items: center;
+        gap: 1rem;
     }
 
     .nav-left {
         width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding-left: 0;
+        gap: 0;
     }
+
+    .navbar a {
+        font-size: clamp(0.1rem, 4vw, 1.5rem);
+        margin-right: 0;
+        font-size: 1.3rem;
+    }
+
+    .nav-search {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-search input {
+        width: clamp(120px, 100vw, 200px);
+        height: clamp(32px, 6vw, 40px);
+    }
+
+    /* .navbar a {
+        font-size: clamp(1.1rem, 4vw, 1.5rem);
+        margin-right: 0;
+    } */
+
+
 
     .hero {
         flex-direction: column;
@@ -712,4 +751,3 @@ p {
     border-right: 2px solid #9a816d;
     border-bottom: 2px solid #9a816d;
 }
-
