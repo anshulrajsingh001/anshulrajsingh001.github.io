@@ -132,7 +132,15 @@ body {
     justify-content: space-between;
 }
 
+.nav-search {
+    width: auto;
+    position: relative;
+}
 
+.pagefind-ui {
+    width: fit-content;
+    outline: 2px solid rgb(255, 0, 204);
+}
 .nav-search input {
 
     width: clamp(180px, 25vw, 280px);
@@ -201,6 +209,7 @@ body {
 
     opacity: 0.75;
 }
+
 
 
 /* =========================================
@@ -434,7 +443,7 @@ pre {
    MOBILE
 ========================================= */
 
-@media (max-width: 500px) {
+@media (max-width: 607px) {
 
     .nav-inner {
         flex-direction: column;
@@ -453,11 +462,11 @@ pre {
     }
 
     .nav-search input {
-        width: clamp(200px, 100vw, 280px);
-        height: clamp(32px, 6vw, 50px);
+        width: clamp(120px, 60vw, 200px);
+        height: clamp(32px, 100vw, 42px);
     }
 
-    .nav-left {
+    /* .nav-left {
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -465,6 +474,17 @@ pre {
 
         padding-left: 0;
         gap: 0;
+    } */
+
+    /* option 1 */
+
+    .nav-left {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 1.5rem;
     }
 
     .navbar a {
@@ -747,3 +767,74 @@ p {
     border-right: 2px solid #9a816d;
     border-bottom: 2px solid #9a816d;
 }
+
+/* =========================================
+   search results
+========================================= */
+
+#search-results {
+    position: absolute;
+
+    top: 100%;
+    right: 0;
+
+    width: 280px;
+    max-height: 350px;
+
+    overflow-y: auto;
+
+    background: #fffaf1;
+
+    border: 2px solid #9a816d;
+
+    box-shadow:
+        4px 4px 0px rgba(0,0,0,0.2);
+
+    z-index: 2000;
+}
+
+.search-result {
+    padding: 0.75rem 1rem;
+
+    border-bottom: 1px solid rgba(123,90,54,0.15);
+
+    transition: 0.1s ease;
+}
+
+.search-result:last-child {
+    border-bottom: none;
+}
+
+.search-result:hover {
+    background: #f0e5d4;
+}
+
+.search-result a {
+    text-decoration: none;
+
+    color: var(--text);
+
+    font-family: 'VT323', monospace;
+
+    font-size: 1.4rem;
+
+    display: block;
+}
+
+#search-results:empty {
+    display: none;
+}
+
+
+/* debugging */
+/* .nav-inner {
+    outline: 2px solid blue;
+}
+
+.container {
+    outline: 2px solid red;
+}
+
+.nav-search {
+    outline: 2px solid green;
+} */

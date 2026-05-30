@@ -9,6 +9,8 @@
 
     <title>Anshul Math</title>
 
+    <link rel="icon" href="favicon.ico">
+
     <link rel="stylesheet" href="style.css">
 
     <script>
@@ -21,6 +23,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
+
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <script src="/pagefind/pagefind-ui.js"></script>
 
 </head>
 
@@ -41,16 +46,17 @@
 
             <div class="nav-left">
                 <a href="index.html">HOME</a>
-                <a href="#">NOTES</a>
-                <a href="#">ABOUT</a>
+                <a href="notes.html">NOTES</a>
+                <a href="about.html">ABOUT</a>
             </div>
 
             <div class="nav-search">
-                <input type="text" placeholder="SEARCH...">
+                <input id="search-input" type="text" placeholder="SEARCH...">
+                <div id="search-results"></div>
             </div>
-
         </div>
     </nav>
+    <!-- <div id="search-results"></div> -->
 
     <main class="page-content">
 
@@ -373,6 +379,43 @@
             .then(data => {
                 document.getElementById('footer').innerHTML = data;
             });
+    </script>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            new PagefindUI({
+                element: "#search"
+            });
+        });
+    </script>
+
+    <script type="module">
+        import * as pagefind from "/pagefind/pagefind.js";
+
+        const input = document.getElementById("search-input");
+        const results = document.getElementById("search-results");
+
+        input.addEventListener("input", async () => {
+
+            const search = await pagefind.search(input.value);
+
+            results.innerHTML = "";
+
+            for (const result of search.results) {
+
+                const data = await result.data();
+
+                results.innerHTML += `
+                    <div class="search-result">
+                        <a href="${data.url}">
+                            ${data.meta.title}
+                        </a>
+                    </div>
+                `;
+            }
+        });
+
+        console.log(data.url);
     </script>
 
 </body>

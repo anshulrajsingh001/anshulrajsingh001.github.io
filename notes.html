@@ -9,6 +9,8 @@
 
     <title>Anshul Math</title>
 
+    <link rel="icon" href="favicon.ico">
+
     <link rel="stylesheet" href="style.css">
 
     <script>
@@ -22,11 +24,14 @@
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
 
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <script src="/pagefind/pagefind-ui.js"></script>
+
 </head>
 
 <body>
 
-    <nav class="navbar">
+    <!-- <nav class="navbar">
 
         <a href="index.html">HOME</a>
 
@@ -34,7 +39,24 @@
 
         <a href="about.html">ABOUT</a>
 
+    </nav> -->
+
+    <nav class="navbar">
+        <div class="nav-inner">
+
+            <div class="nav-left">
+                <a href="index.html">HOME</a>
+                <a href="notes.html">NOTES</a>
+                <a href="about.html">ABOUT</a>
+            </div>
+
+            <div class="nav-search">
+                <input id="search-input" type="text" placeholder="SEARCH...">
+                <div id="search-results"></div>
+            </div>
+        </div>
     </nav>
+    <!-- <div id="search-results"></div> -->
 
     <main class="page-content">
 
@@ -53,8 +75,8 @@
                 </div>
 
                 <div class="wizard-box">
-                        <img id="wizard" src="assets/images/polyKnight_idle.gif" class="pixel-gif">
-                    </div>
+                    <img id="wizard" src="assets/images/polyKnight_idle.gif" class="pixel-gif">
+                </div>
             </div>
 
             <p>
@@ -65,10 +87,10 @@
             <div class="posts-grid">
                 <div class="post-card">
 
-                    <a href="posts/first-post.html">
+                    <a href="posts/generating-functions.html">
 
                         <div class="post-title">
-                            Galois Theory
+                            HAIRY BALL THEOREM
                         </div>
 
                         <p>
@@ -84,11 +106,11 @@
                     <a href="posts/generating-functions.html">
 
                         <div class="post-tag">
-                            Analysis
+                            COMBINATORICS
                         </div>
 
                         <div class="post-title">
-                            Function Spaces
+                            GENERATING FUNCTIONS
                         </div>
 
                         <div class="post-date-small">
@@ -96,7 +118,8 @@
                         </div>
 
                         <p>
-                            Mainly based on Stein and Shakarchi's Functional Analysis book.
+                            Introduction to generating functions
+                            for newbies.
                         </p>
 
                     </a>
@@ -358,17 +381,41 @@
             });
     </script>
 
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            new PagefindUI({
+                element: "#search"
+            });
+        });
+    </script>
+
+    <script type="module">
+        import * as pagefind from "/pagefind/pagefind.js";
+
+        const input = document.getElementById("search-input");
+        const results = document.getElementById("search-results");
+
+        input.addEventListener("input", async () => {
+
+            const search = await pagefind.search(input.value);
+
+            results.innerHTML = "";
+
+            for (const result of search.results) {
+
+                const data = await result.data();
+
+                results.innerHTML += `
+                    <div class="search-result">
+                        <a href="${data.url}">
+                            ${data.meta.title}
+                        </a>
+                    </div>
+                `;
+            }
+        });
+    </script>
+
 </body>
-
-<!-- <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
-
-<script src="/pagefind/pagefind-ui.js"></script>
-
-<script>
-    new PagefindUI({
-        element: "#search",
-        showSubResults: true
-    });
-</script> -->
 
 </html>
