@@ -461,10 +461,10 @@ pre {
         width: 100%;
     }
 
-    .nav-search input {
+    /* .nav-search input {
         width: clamp(120px, 60vw, 200px);
         height: clamp(32px, 100vw, 42px);
-    }
+    } */
 
     /* .nav-left {
         width: 100%;
@@ -481,8 +481,10 @@ pre {
     .nav-left {
         width: 100%;
         display: flex;
-        justify-content: center;
+        /* justify-content: center; good with search bar */
+        justify-content: flex-start;
         align-items: center;
+        padding-left: 1rem; /* adjust as needed */
 
         gap: 1.5rem;
     }
