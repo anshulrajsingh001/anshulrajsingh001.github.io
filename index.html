@@ -58,7 +58,7 @@
     </nav>
     <!-- <div id="search-results"></div> -->
 
-    <main class="page-content">
+    <main class="page-content" data-pagefind-body>
 
         <div class="container">
 
@@ -68,9 +68,7 @@
 
                 <div class="hero-text">
 
-                    <h1>
-                        ANSHUL.MATH
-                    </h1>
+                    <h1 data-pagefind-ignore>ANSHUL.MATH</h1>
 
                 </div>
 
@@ -85,8 +83,8 @@
             </p>
 
             <div class="posts-grid">
-                <div class="post-card">
 
+                <div class="post-card">
                     <a href="posts/first-post.html">
 
                         <div class="post-title">
@@ -98,7 +96,6 @@
                         </p>
 
                     </a>
-
                 </div>
 
                 <div class="post-card">
@@ -390,32 +387,108 @@
     </script>
 
     <script type="module">
+
         import * as pagefind from "/pagefind/pagefind.js";
 
         const input = document.getElementById("search-input");
         const results = document.getElementById("search-results");
 
-        input.addEventListener("input", async () => {
+        let activeIndex = -1;
+        let currentResults = [];
 
+        // input.addEventListener("input", async () => {
+
+        //     const search = await pagefind.search(input.value);
+
+        //     results.innerHTML = "";
+
+        //     for (const result of search.results) {
+
+        //         const data = await result.data();
+
+        //         results.innerHTML += `
+        //             <div class="search-result">
+        //                 <a href="${data.url}">
+        //                     ${data.meta.title}
+        //                 </a>
+        //             </div>
+        //         `;
+        //     }
+        // });
+
+        input.addEventListener("input", async () => {
             const search = await pagefind.search(input.value);
 
             results.innerHTML = "";
+            currentResults = [];
+            activeIndex = -1;
+
+            const seen = new Set();
 
             for (const result of search.results) {
-
                 const data = await result.data();
+                const url = new URL(data.url, window.location.origin).href;
 
-                results.innerHTML += `
-                    <div class="search-result">
-                        <a href="${data.url}">
-                            ${data.meta.title}
-                        </a>
-                    </div>
-                `;
+                if (seen.has(url)) continue;
+                seen.add(url);
+
+                currentResults.push({
+                    title: data.meta.title,
+                    url
+                });
             }
+
+            renderResults();
         });
 
-        console.log(data.url);
+        function renderResults() {
+            results.innerHTML = "";
+
+            currentResults.forEach((item, index) => {
+                const div = document.createElement("div");
+                div.className = "search-result";
+
+                if (index === activeIndex) {
+                    div.classList.add("active");
+                }
+
+                div.innerHTML = `
+            <a href="${item.url}" class="result-link">
+                ${item.title}
+            </a>
+        `;
+
+                div.addEventListener("mouseenter", () => {
+                    activeIndex = index;
+                    renderResults();
+                });
+
+                results.appendChild(div);
+            });
+        }
+
+        input.addEventListener("keydown", (e) => {
+            if (!currentResults.length) return;
+
+            if (e.key === "ArrowDown") {
+                e.preventDefault();
+                activeIndex = (activeIndex + 1) % currentResults.length;
+                renderResults();
+            }
+
+            if (e.key === "ArrowUp") {
+                e.preventDefault();
+                activeIndex =
+                    (activeIndex - 1 + currentResults.length) % currentResults.length;
+                renderResults();
+            }
+
+            if (e.key === "Enter") {
+                if (activeIndex >= 0) {
+                    window.location.href = currentResults[activeIndex].url;
+                }
+            }
+        });
     </script>
 
 </body>
