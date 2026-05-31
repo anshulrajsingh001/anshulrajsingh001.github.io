@@ -402,13 +402,14 @@ pre {
         /* font-size: 1.3rem; */
     }
 
-    /* #search {
-        margin-bottom: clamp(2rem, 6vw, 5rem);
-    } */
+    #search {
+        /* margin-bottom: clamp(2rem, 6vw, 5rem); */
+        margin-bottom: 0;
+    }
 
     .hero {
 
-        margin-top: clamp(2rem, 6vw, 5rem);
+        margin-top: clamp(1rem, 4vw, 2.5rem);
 
         flex-direction: column;
         align-items: flex-start;
