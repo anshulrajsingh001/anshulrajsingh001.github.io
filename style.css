@@ -78,27 +78,11 @@ body {
 
 .navbar {
 
-    /* brown theme */
-    /* border-bottom: 3px solid var(--border); */
-
-    display: flex;
-
-    justify-content: flex-start;
-
-    align-items: center;
-
-    padding: 1rem 0rem;
-
-    /* default brown */
-    /* background: rgba(183, 134, 103, 0.9); */
-
-    /* Muted Coffee Brown */
     background: #5b4a3f;
-    border-bottom: 2px solid #9a816d;
-    box-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.08);
 
-    backdrop-filter: blur(6px);
+    border-bottom: 2px solid #9a816d;
+
+    padding: 1rem 2rem;
 
     position: sticky;
 
@@ -108,16 +92,8 @@ body {
 
     width: 100%;
 
-    /* default theme */
-    /* border-bottom: 1px solid var(--border);
-
-    padding: 1rem 2rem;
-
-    background: rgba(255,255,255,0.9);
-
-    position: sticky;
-
-    top: 0; */
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .nav-inner {
@@ -130,53 +106,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.nav-search {
-    width: auto;
-    position: relative;
-}
-
-.pagefind-ui {
-    width: fit-content;
-    outline: 2px solid rgb(255, 0, 204);
-}
-.nav-search input {
-
-    width: clamp(180px, 25vw, 280px);
-    height: 42px;
-
-    padding: 0 12px;
-
-    background: #4a3c33;
-
-    color: #f5ead9;
-
-    border-top: 2px solid #9a816d;
-    border-left: 2px solid #9a816d;
-
-    border-right: 2px solid #312721;
-    border-bottom: 2px solid #312721;
-
-    font-family: 'VT323', monospace;
-    font-size: 1.5rem;
-
-    outline: none;
-}
-
-.nav-search input:focus {
-
-    border-top: 2px solid #c2a88f;
-    border-left: 2px solid #c2a88f;
-
-    border-right: 2px solid #312721;
-    border-bottom: 2px solid #312721;
-}
-
-.nav-search input::placeholder {
-
-    color: rgba(245, 234, 217, 0.55);
-    letter-spacing: 0.08em;
 }
 
 .navbar a {
@@ -443,40 +372,17 @@ pre {
    MOBILE
 ========================================= */
 
-@media (max-width: 607px) {
+@media (max-width: 700px) {
 
     .nav-inner {
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 2rem;
         /* width: 100%; */
         margin: 0 auto;
         /* padding-left: 2rem;
         padding-right: 2rem; */
     }
-
-    .nav-search {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-
-    /* .nav-search input {
-        width: clamp(120px, 60vw, 200px);
-        height: clamp(32px, 100vw, 42px);
-    } */
-
-    /* .nav-left {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        padding-left: 0;
-        gap: 0;
-    } */
-
-    /* option 1 */
 
     .nav-left {
         width: 100%;
@@ -484,7 +390,8 @@ pre {
         justify-content: center;
         /* justify-content: flex-start; alignes to the left */
         align-items: center;
-        padding-left: 1rem; /* adjust as needed */
+        /* padding-left: 1rem; */
+        /* adjust as needed */
 
         gap: 1.5rem;
     }
@@ -495,8 +402,13 @@ pre {
         /* font-size: 1.3rem; */
     }
 
+    /* #search {
+        margin-bottom: clamp(2rem, 6vw, 5rem);
+    } */
 
     .hero {
+
+        margin-top: clamp(2rem, 6vw, 5rem);
 
         flex-direction: column;
         align-items: flex-start;
@@ -582,10 +494,6 @@ pre {
 
     flex-shrink: 0;
 }
-
-/* =========================================
-   PIXEL GIF
-========================================= */
 
 /* =========================================
    WIZARD CONTAINER
@@ -772,77 +680,95 @@ p {
 }
 
 /* =========================================
-   search results
+   SEARCH BAR
 ========================================= */
 
-#search-results {
-    position: absolute;
+#search {
 
-    top: 100%;
-    right: 0;
+    margin-top: 3rem;
 
-    width: 280px;
-    max-height: 350px;
-
-    overflow-y: auto;
-
-    background: #fffaf1;
-
-    border: 2px solid #9a816d;
-
-    box-shadow:
-        4px 4px 0px rgba(0,0,0,0.2);
-
-    z-index: 2000;
+    /* margin-bottom: -1rem; */
 }
 
-.search-result {
-    /* padding: 0.75rem 1rem; */
-    padding: 8px 10px;
+.pagefind-ui {
 
-    border-bottom: 1px solid rgba(123,90,54,0.15);
+    position: static !important;
 
-    transition: 0.1s ease;
+    --pagefind-ui-scale: 1.0;
+
+    --pagefind-ui-primary: #7b5a36;
+
+    --pagefind-ui-text: #2c241d;
+
+    --pagefind-ui-background: #fffaf1;
+
+    --pagefind-ui-border: #9a816d;
+
+    --pagefind-ui-tag: #eee0ca;
+
+    --pagefind-ui-border-width: 2px;
+
+    font-family: 'IBM Plex Sans', sans-serif !important;
 }
 
-.search-result.active {
-    background: rgba(0, 0, 0, 0.08);
+/* SEARCH INPUT */
+
+.pagefind-ui__search-input {
+
+    font-family: 'VT323', monospace !important;
+
+    font-size: 2rem !important;
+
+    line-height: 64px !important;
+
+    background: #fffaf1 !important;
+
+    color: #2c241d !important;
+
+    border: 2px solid #9a816d !important;
+
+    height: 64px !important;
+
+    padding: 0 1rem 0 3.5rem !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
 }
 
-.search-result:last-child {
-    border-bottom: none;
+/* SEARCH ICON */
+
+.pagefind-ui__search-icon {
+
+    position: absolute !important;
+
+    left: 1rem !important;
+
+    top: 20px !important;
 }
 
-.search-result:hover {
-    background: #f0e5d4;
+/* CLEAR BUTTON */
+
+.pagefind-ui__search-clear {
+
+    /* top: 20px !important; */
+    display: none !important;
 }
 
-.search-result a {
-    text-decoration: none;
+/* RESULTS */
 
-    color: var(--text);
+.pagefind-ui__result {
 
-    font-family: 'VT323', monospace;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
 
-    font-size: 1.4rem;
+    padding-top: 1rem;
 
-    display: block;
+    margin-top: 1rem;
 }
 
-#search-results:empty {
-    display: none;
+.pagefind-ui__result-title {
+
+    font-family: 'VT323', monospace !important;
+
+    font-size: 1.5rem !important;
 }
-
-
-/* debugging */
-/* .nav-inner {
-    outline: 2px solid blue;
-}
-
-.container {
-    outline: 2px solid red;
-}
-
-.nav-search {
-    outline: 2px solid green;
-} */

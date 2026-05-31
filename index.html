@@ -25,6 +25,7 @@
     </script>
 
     <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
     <script src="/pagefind/pagefind-ui.js"></script>
 
 </head>
@@ -39,26 +40,20 @@
                 <a href="notes.html">NOTES</a>
                 <a href="about.html">ABOUT</a>
             </div>
-
-            <!-- <div class="nav-search">
-                <input id="search-input" type="text" placeholder="SEARCH...">
-                <div id="search-results"></div>
-            </div> in development search -->
         </div>
     </nav>
-    <!-- <div id="search-results"></div> -->
 
-    <main class="page-content" data-pagefind-body>
+    <main class="page-content">
 
         <div class="container">
 
-            <!-- <div id="search"></div> -->
+            <div id="search"></div>
 
             <div class="hero">
 
                 <div class="hero-text">
 
-                    <h1 data-pagefind-ignore>ANSHUL.MATH</h1>
+                    <h1>ANSHUL.MATH</h1>
 
                 </div>
 
@@ -369,116 +364,9 @@
     </script>
 
     <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            new PagefindUI({
-                element: "#search"
-            });
-        });
-    </script>
-
-    <script type="module">
-
-        import * as pagefind from "/pagefind/pagefind.js";
-
-        const input = document.getElementById("search-input");
-        const results = document.getElementById("search-results");
-
-        let activeIndex = -1;
-        let currentResults = [];
-
-        // input.addEventListener("input", async () => {
-
-        //     const search = await pagefind.search(input.value);
-
-        //     results.innerHTML = "";
-
-        //     for (const result of search.results) {
-
-        //         const data = await result.data();
-
-        //         results.innerHTML += `
-        //             <div class="search-result">
-        //                 <a href="${data.url}">
-        //                     ${data.meta.title}
-        //                 </a>
-        //             </div>
-        //         `;
-        //     }
-        // });
-
-        input.addEventListener("input", async () => {
-            const search = await pagefind.search(input.value);
-
-            results.innerHTML = "";
-            currentResults = [];
-            activeIndex = -1;
-
-            const seen = new Set();
-
-            for (const result of search.results) {
-                const data = await result.data();
-                const url = new URL(data.url, window.location.origin).href;
-
-                if (seen.has(url)) continue;
-                seen.add(url);
-
-                // FIX: Use the explicit page title metadata indexed by Pagefind
-                currentResults.push({
-                    title: data.meta.title || "Untitled Post",
-                    url
-                });
-            }
-
-            renderResults();
-        });
-
-        function renderResults() {
-            results.innerHTML = "";
-
-            currentResults.forEach((item, index) => {
-                const div = document.createElement("div");
-                div.className = "search-result";
-
-                if (index === activeIndex) {
-                    div.classList.add("active");
-                }
-
-                div.innerHTML = `
-            <a href="${item.url}" class="result-link">
-                ${item.title}
-            </a>
-        `;
-
-                div.addEventListener("mouseenter", () => {
-                    activeIndex = index;
-                    renderResults();
-                });
-
-                results.appendChild(div);
-            });
-        }
-
-        input.addEventListener("keydown", (e) => {
-            if (!currentResults.length) return;
-
-            if (e.key === "ArrowDown") {
-                e.preventDefault();
-                activeIndex = (activeIndex + 1) % currentResults.length;
-                renderResults();
-            }
-
-            if (e.key === "ArrowUp") {
-                e.preventDefault();
-                activeIndex =
-                    (activeIndex - 1 + currentResults.length) % currentResults.length;
-                renderResults();
-            }
-
-            if (e.key === "Enter") {
-                if (activeIndex >= 0) {
-                    window.location.href = currentResults[activeIndex].url;
-                }
-            }
+        new PagefindUI({
+            element: "#search",
+            showSubResults: true
         });
     </script>
 
