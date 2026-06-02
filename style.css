@@ -306,37 +306,19 @@ body {
 .definition,
 .remark,
 .claim {
-    /* margin: 1.5rem; */
-    margin: 1.2rem 0 0.75rem 1.2rem;
+    margin: 1.2rem 0;
+    padding: 1rem 1.25rem;
+
     background: var(--paper);
     border: 2px solid rgba(123,90,54,0.18);
-    padding: 1rem 1.25rem;
 }
 
-.proof {
-
-    /* background: var(--paper); */
-    background: none;
-
-    /* border-left: 4px solid var(--accent); */
-
-    /* padding: 1rem 1.25rem; */
-    padding-left: 1.25rem;
-    padding-right: 0;
-
-    margin: 1.5rem 0;
-
-    position: relative;
-}
-
+.proof,
 .proof-claim {
-    margin: 1rem 0 0.5rem 0;
-}
+    margin: 1.2rem 0;
+    padding: 0;
 
-.proof .claim,
-.proof .proof-claim {
-    margin-left: 0;
-    margin-right: 0;
+    background: none;
 }
 
 /* =========================================
