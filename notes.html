@@ -48,13 +48,24 @@
     </nav>
     <!-- <div id="search-results"></div> -->
 
-    <main class="page-content">
+    <div class="container">
 
-        <div class="container">
+        <div class="post-header">
 
-            <!-- <div id="search"></div> -->
+            <div class="post-meta">
 
-            <div class="hero">
+                <h1>NOTES</h1>
+
+                <p class="post-date">
+                    UPDATED: May 29, 2026
+                </p>
+
+            </div>
+        </div>
+
+        <!-- <div id="search"></div> -->
+
+        <!-- <div class="hero">
 
                 <div class="hero-text">
 
@@ -67,316 +78,413 @@
                 <div class="wizard-box">
                     <img id="wizard" src="assets/images/polyKnight_idle.gif" class="pixel-gif">
                 </div>
-            </div>
+            </div> -->
 
-            <p>
-                Expository mathematics, geometry,
-                complex analysis, algebra, and notes.
-            </p>
+        <p>
+            Math notes!
+        </p>
 
-            <div class="posts-grid">
-                <div class="post-card">
+        <div class="posts-grid">
+            <div class="post-card">
 
-                    <a href="posts/hairyball-theorem.html">
+                <a href="posts/hairyball-theorem.html">
+
+                    <div class="post-meta-row">
 
                         <div class="post-tag">
                             DISCRETE MATHEMATICS
                         </div>
 
-                        <div class="post-title">
-                            GRAPH THEORY
-                        </div>
-
                         <div class="post-date-small">
                             May 2026
                         </div>
 
-                        <p>
-                            A problem from chinese tst.
-                        </p>
+                    </div>
 
-                    </a>
+                    <div class="post-title">
+                        GRAPH THEORY
+                    </div>
 
-                </div>
+                    <!-- <div class="post-tag">
+                        DISCRETE MATHEMATICS
+                    </div>
 
-                <div class="post-card">
+                    <div class="post-title">
+                        GRAPH THEORY
+                    </div>
 
-                    <a href="posts/generating-functions.html">
+                    <div class="post-date-small">
+                        May 2026
+                    </div> -->
+
+                    <p>
+                        A problem from chinese tst.
+                    </p>
+
+                </a>
+
+            </div>
+
+            <div class="post-card">
+
+                <a href="posts/generating-functions.html">
+
+                    <div class="post-meta-row">
 
                         <div class="post-tag">
                             COMBINATORICS
                         </div>
 
-                        <div class="post-title">
-                            GENERATING FUNCTIONS
+                        <div class="post-date-small">
+                            May 2026
+                        </div>
+
+                    </div>
+
+                    <div class="post-title">
+                        GENERATING FUNCTIONS
+                    </div>
+
+                    <!-- <div class="post-tag">
+                        COMBINATORICS
+                    </div>
+
+                    <div class="post-title">
+                        GENERATING FUNCTIONS
+                    </div>
+
+                    <div class="post-date-small">
+                        May 2026
+                    </div> -->
+
+                    <p>
+                        Introduction to generating functions
+                        for newbies.
+                    </p>
+
+                </a>
+            </div>
+
+            <div class="post-card">
+
+                <a href="posts/hairyball-theorem.html">
+
+                    <div class="post-meta-row">
+
+                        <div class="post-tag">
+                            DISCRETE MATHEMATICS
                         </div>
 
                         <div class="post-date-small">
                             May 2026
                         </div>
 
-                        <p>
-                            Introduction to generating functions
-                            for newbies.
-                        </p>
+                    </div>
 
-                    </a>
+                    <div class="post-title">
+                        GRAPH THEORY
+                    </div>
 
-                </div>
+                    <!-- <div class="post-tag">
+                        DISCRETE MATHEMATICS
+                    </div>
+
+                    <div class="post-title">
+                        GRAPH THEORY
+                    </div>
+
+                    <div class="post-date-small">
+                        May 2026
+                    </div> -->
+
+                    <p>
+                        A problem from chinese tst.
+                    </p>
+
+                </a>
+
+            </div>
+
+            <div class="post-card">
+
+                <a href="posts/hairyball-theorem.html">
+
+                    <div class="post-meta-row">
+
+                        <div class="post-tag">
+                            DISCRETE MATHEMATICS
+                        </div>
+
+                        <div class="post-date-small">
+                            May 2026
+                        </div>
+
+                    </div>
+
+                    <div class="post-title">
+                        GRAPH THEORY
+                    </div>
+
+                    <!-- <div class="post-tag">
+                        DISCRETE MATHEMATICS
+                    </div>
+
+                    <div class="post-title">
+                        GRAPH THEORY
+                    </div>
+
+                    <div class="post-date-small">
+                        May 2026
+                    </div> -->
+
+                    <p>
+                        A problem from chinese tst.
+                    </p>
+
+                </a>
+
             </div>
         </div>
+    </div>
 
-        </div>
+    </div>
 
-        <!-- GIF ANIMATIONS AND INTERACTIONS -->
-        <script>
+    <!-- GIF ANIMATIONS AND INTERACTIONS -->
+    <script>
 
-            const loot = [
+        const loot = [
 
-                "📜 Analysis",
+            "📜 Analysis",
 
-                "📘 Euler",
+            "📘 Euler",
 
-                "🧪 Complex Numbers",
+            "🧪 Complex Numbers",
 
-                "📐 Geometry",
+            "📐 Geometry",
 
-                "✨ Morera's",
+            "✨ Morera's",
 
-                "🌀 Riemann Sphere"
+            "🌀 Riemann Sphere"
 
-            ];
+        ];
 
-            const wizard = document.getElementById("wizard");
+        const wizard = document.getElementById("wizard");
 
-            /* =========================================
-               GIF PATHS
-            ========================================= */
+        /* =========================================
+           GIF PATHS
+        ========================================= */
 
-            const idleGif = "assets/images/polyKnight_idle.gif";
+        const idleGif = "assets/images/polyKnight_idle.gif";
 
-            const duckGif = "assets/images/polyKnight_duck.gif";
+        const duckGif = "assets/images/polyKnight_duck.gif";
 
-            const hurtGif = "assets/images/polyKnight_hurt.gif";
+        const hurtGif = "assets/images/polyKnight_hurt.gif";
 
-            const deadGif = "assets/images/polyKnight_dead.gif";
+        const deadGif = "assets/images/polyKnight_dead.gif";
 
-            const respawnGif = "assets/images/polyKnight_spawn.gif";
+        const respawnGif = "assets/images/polyKnight_spawn.gif";
 
-            const sleepGif = "assets/images/polyKnight_sleep.gif";
+        const sleepGif = "assets/images/polyKnight_sleep.gif";
 
-            /* =========================================
-               SETTINGS
-            ========================================= */
+        /* =========================================
+           SETTINGS
+        ========================================= */
 
-            const sleepDelay = 5000;
+        const sleepDelay = 5000;
 
-            /* =========================================
-               VARIABLES
-            ========================================= */
+        /* =========================================
+           VARIABLES
+        ========================================= */
 
-            let clickCount = 0;
+        let clickCount = 0;
 
-            let clickTimer;
+        let clickTimer;
 
-            let sleepTimer;
+        let sleepTimer;
 
-            let isDead = false;
+        let isDead = false;
 
-            let isSleeping = false;
+        let isSleeping = false;
 
-            /* =========================================
-               START SLEEP TIMER
-            ========================================= */
+        /* =========================================
+           START SLEEP TIMER
+        ========================================= */
 
-            startSleepTimer();
+        startSleepTimer();
 
-            /* =========================================
-               Random Loot Function
-            ========================================= */
+        /* =========================================
+           Random Loot Function
+        ========================================= */
 
-            function spawnLoot() {
+        function spawnLoot() {
 
-                const item =
-                    loot[Math.floor(Math.random() * loot.length)];
+            const item =
+                loot[Math.floor(Math.random() * loot.length)];
 
-                const drop = document.createElement("div");
+            const drop = document.createElement("div");
 
-                drop.textContent = item;
+            drop.textContent = item;
 
-                drop.classList.add("loot-drop");
+            drop.classList.add("loot-drop");
 
-                document.body.appendChild(drop);
+            document.body.appendChild(drop);
 
-                const rect =
-                    wizard.getBoundingClientRect();
+            const rect =
+                wizard.getBoundingClientRect();
 
-                drop.style.left =
-                    rect.left + "px";
+            drop.style.left =
+                rect.left + "px";
 
-                drop.style.top =
-                    rect.top + "px";
+            drop.style.top =
+                rect.top + "px";
 
-                setTimeout(() => {
+            setTimeout(() => {
 
-                    drop.remove();
+                drop.remove();
 
-                }, 2000);
+            }, 2000);
+        }
+
+        /* =========================================
+           CLICK EVENT
+        ========================================= */
+
+        wizard.addEventListener("click", () => {
+
+            if (Math.random() < 0.15) {
+
+                spawnLoot();
+
             }
 
-            /* =========================================
-               CLICK EVENT
-            ========================================= */
+            if (isDead) return;
 
-            wizard.addEventListener("click", () => {
+            /* =====================================
+               WAKE FROM SLEEP
+            ===================================== */
 
-                if (Math.random() < 0.15) {
+            if (isSleeping) {
 
-                    spawnLoot();
+                isSleeping = false;
 
-                }
-
-                if (isDead) return;
-
-                /* =====================================
-                   WAKE FROM SLEEP
-                ===================================== */
-
-                if (isSleeping) {
-
-                    isSleeping = false;
-
-                    wizard.src = idleGif;
-
-                    resetSleepTimer();
-
-                    return;
-                }
+                wizard.src = idleGif;
 
                 resetSleepTimer();
 
-                clickCount++;
+                return;
+            }
 
-                clearTimeout(clickTimer);
+            resetSleepTimer();
 
-                /* =====================================
-                   SINGLE CLICK → DUCK
-                ===================================== */
+            clickCount++;
 
-                if (clickCount === 1) {
+            clearTimeout(clickTimer);
 
-                    wizard.src = duckGif;
+            /* =====================================
+               SINGLE CLICK → DUCK
+            ===================================== */
 
-                    clickTimer = setTimeout(() => {
+            if (clickCount === 1) {
 
-                        wizard.src = idleGif;
+                wizard.src = duckGif;
 
-                        clickCount = 0;
+                clickTimer = setTimeout(() => {
 
-                    }, 1000);
-                }
-
-                /* =====================================
-                   DOUBLE CLICK → HURT
-                ===================================== */
-
-                else if (clickCount === 2) {
-
-                    clearTimeout(clickTimer);
-
-                    wizard.src = hurtGif;
-
-                    clickTimer = setTimeout(() => {
-
-                        wizard.src = idleGif;
-
-                        clickCount = 0;
-
-                    }, 800);
-                }
-
-                /* =====================================
-                   TRIPLE CLICK → DEATH
-                ===================================== */
-
-                else if (clickCount >= 3) {
-
-                    clearTimeout(clickTimer);
+                    wizard.src = idleGif;
 
                     clickCount = 0;
 
-                    isDead = true;
-
-                    clearTimeout(sleepTimer);
-
-                    wizard.src = deadGif;
-
-                    wizard.style.pointerEvents = "none";
-
-                    /* respawn animation */
-
-                    setTimeout(() => {
-
-                        wizard.src = respawnGif;
-
-                    }, 1300);
-
-                    /* back to idle */
-
-                    setTimeout(() => {
-
-                        isDead = false;
-
-                        wizard.src = idleGif;
-
-                        wizard.style.pointerEvents = "auto";
-
-                        resetSleepTimer();
-
-                    }, 2400);
-                }
-
-            });
-
-            /* =========================================
-               SLEEP SYSTEM
-            ========================================= */
-
-            function startSleepTimer() {
-
-                sleepTimer = setTimeout(() => {
-
-                    if (!isDead) {
-
-                        isSleeping = true;
-
-                        wizard.src = sleepGif;
-                    }
-
-                }, sleepDelay);
-
+                }, 1000);
             }
 
-            function resetSleepTimer() {
+            /* =====================================
+               DOUBLE CLICK → HURT
+            ===================================== */
+
+            else if (clickCount === 2) {
+
+                clearTimeout(clickTimer);
+
+                wizard.src = hurtGif;
+
+                clickTimer = setTimeout(() => {
+
+                    wizard.src = idleGif;
+
+                    clickCount = 0;
+
+                }, 800);
+            }
+
+            /* =====================================
+               TRIPLE CLICK → DEATH
+            ===================================== */
+
+            else if (clickCount >= 3) {
+
+                clearTimeout(clickTimer);
+
+                clickCount = 0;
+
+                isDead = true;
 
                 clearTimeout(sleepTimer);
 
-                startSleepTimer();
+                wizard.src = deadGif;
 
+                wizard.style.pointerEvents = "none";
+
+                /* respawn animation */
+
+                setTimeout(() => {
+
+                    wizard.src = respawnGif;
+
+                }, 1300);
+
+                /* back to idle */
+
+                setTimeout(() => {
+
+                    isDead = false;
+
+                    wizard.src = idleGif;
+
+                    wizard.style.pointerEvents = "auto";
+
+                    resetSleepTimer();
+
+                }, 2400);
             }
-        </script>
-    </main>
 
-    <!-- Footer -->
+        });
 
-    <div id="footer"></div>
+        /* =========================================
+           SLEEP SYSTEM
+        ========================================= */
 
-    <script>
-        fetch('/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer').innerHTML = data;
-            });
+        function startSleepTimer() {
+
+            sleepTimer = setTimeout(() => {
+
+                if (!isDead) {
+
+                    isSleeping = true;
+
+                    wizard.src = sleepGif;
+                }
+
+            }, sleepDelay);
+
+        }
+
+        function resetSleepTimer() {
+
+            clearTimeout(sleepTimer);
+
+            startSleepTimer();
+
+        }
     </script>
 
     <script>
@@ -412,6 +520,18 @@
                 `;
             }
         });
+    </script>
+
+    <!-- Footer -->
+
+    <div id="footer"></div>
+
+    <script>
+        fetch('/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
     </script>
 
 </body>
