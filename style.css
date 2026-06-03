@@ -209,6 +209,72 @@
     --heading-font: 'IBM Plex Sans', sans-serif;
 }
 
+[data-theme="dark-gray"] {
+    /* background layers */
+    --bg: #1f1f1f;
+    --paper: #262626;
+
+    /* text */
+    --text: #e6e6e6;
+    --border: #3a3a3a;
+    --accent: #b0b0b0;
+
+    /* navbar */
+    --navbar-bg: #2a2a2a;
+    --navbar-border: #3f3f3f;
+    --navbar-text: #f0f0f0;
+
+    /* ui colors */
+    --ui-bg: #262626;
+    --ui-border: #3a3a3a;
+    --ui-text: #e6e6e6;
+    --ui-muted: #bdbdbd;
+
+    /* selection */
+    --selection-bg: #4a4a4a;
+    --selection-text: #ffffff;
+
+    /* fonts */
+    --body-font: 'IBM Plex Sans', sans-serif;
+    --heading-font: 'IBM Plex Sans', sans-serif;
+
+    /* optional muted text override */
+    --muted-text: rgba(230, 230, 230, 0.65);
+}
+
+[data-theme="dark-gray"] {
+    /* background layers */
+    --bg: #1f1f1f;
+    --paper: #262626;
+
+    /* text */
+    --text: #e6e6e6;
+    --border: #3a3a3a;
+    --accent: #b0b0b0;
+
+    /* navbar */
+    --navbar-bg: #2a2a2a;
+    --navbar-border: #3f3f3f;
+    --navbar-text: #f0f0f0;
+
+    /* ui colors */
+    --ui-bg: #262626;
+    --ui-border: #3a3a3a;
+    --ui-text: #e6e6e6;
+    --ui-muted: #bdbdbd;
+
+    /* selection */
+    --selection-bg: #4a4a4a;
+    --selection-text: #ffffff;
+
+    /* fonts */
+    --body-font: 'IBM Plex Sans', sans-serif;
+    --heading-font: 'IBM Plex Sans', sans-serif;
+
+    /* optional muted text override */
+    --muted-text: rgba(230, 230, 230, 0.65);
+}
+
 * {
 
     box-sizing: border-box;
@@ -238,23 +304,6 @@ body {
 
     -webkit-font-smoothing: antialiased;
 
-
-    /* default theme */
-    /* margin: 0;
-
-    background: var(--bg);
-
-    color: var(--text);
-
-    font-family: 'IBM Plex Sans', sans-serif;
-
-    font-weight: 600;
-
-    line-height: 1.8;
-
-    letter-spacing: 0.01em;
-
-    -webkit-font-smoothing: antialiased; */
 }
 
 /* =========================================
@@ -654,6 +703,17 @@ body {
     font-weight: 10;
 }
 
+.post-card,
+.theorem,
+.lemma,
+.definition,
+.proposition,
+.corollary,
+.claim {
+    background: var(--paper);
+    border: 1px solid var(--border);
+}
+
 
 /* =========================================
    LINKS
@@ -755,31 +815,42 @@ pre {
 @media (max-width: 700px) {
 
     .nav-inner {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
         align-items: center;
-        gap: 2rem;
-        /* width: 100%; */
-        margin: 0 auto;
-        /* padding-left: 2rem;
-        padding-right: 2rem; */
+        justify-content: space-between;
+
+        width: 100%;
+        max-width: 100%;
+
+        padding: 0;
+
+        gap: 0;
+        overflow: hidden; /* IMPORTANT */
     }
 
     .nav-left {
-        width: 100%;
         display: flex;
-        justify-content: center;
-        /* justify-content: flex-start; alignes to the left */
         align-items: center;
-        /* padding-left: 1rem; */
-        /* adjust as needed */
+        justify-content: flex-start;
 
-        gap: 1.5rem;
+        flex: 1;
+        min-width: 0;
+        gap: 0.8rem;
     }
 
     .navbar a {
-        font-size: clamp(2rem, 7vw, 3rem);
-        margin-right: 0;
-        /* font-size: 1.3rem; */
+        font-size: 1.1rem;   /* stop overflow */
+        margin-right: 0.8rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* IMPORTANT FIX */
+    .theme-toggle {
+        margin-left: 0 !important;
+        flex-shrink: 0;
+        white-space: nowrap;
     }
 
     #search {
@@ -978,7 +1049,8 @@ pre {
     width: 18px;
     height: 18px;
 
-    filter: invert(20%) sepia(30%) saturate(400%) hue-rotate(350deg);
+    /* filter: invert(20%) sepia(30%) saturate(400%) hue-rotate(350deg); */
+    color: var(--navbar-text);
     /* makes icons match your brown theme */
 }
 
@@ -1271,3 +1343,58 @@ p {
     font-size: 0.95rem;
     color: var(--muted-text);
 }
+
+[data-theme="dark-gray"] a {
+    color: #c9c9c9;
+}
+
+[data-theme="dark-gray"] a:hover {
+    color: #ffffff;
+}
+
+[data-theme="dark-gray"] code,
+[data-theme="dark-gray"] pre {
+    background: #2a2a2a;
+    color: #e6e6e6;
+    border: 1px solid #3a3a3a;
+}
+
+[data-theme="dark-gray"] .footer {
+    border-top: 1px solid var(--ui-border);
+    opacity: 1;
+    color: var(--ui-muted);
+}
+
+[data-theme="dark-gray"] .footer a {
+    color: var(--ui-text);
+}
+
+[data-theme="dark-gray"] .footer a:hover {
+    color: #ffffff;
+}
+
+.theme-toggle {
+    /* background: var(--navbar-bg); */
+    background: transparent;
+    color: var(--navbar-text);
+
+    border: 1px solid var(--navbar-border);
+    border-radius: 0px;
+
+    padding: 0.3rem 0.6rem;
+
+    font-size: 1rem;
+    cursor: pointer;
+
+    font-family: var(--heading-font);
+
+    transition: 0.2s ease;
+
+    margin-left: auto;
+}
+
+.theme-toggle:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+}
+
