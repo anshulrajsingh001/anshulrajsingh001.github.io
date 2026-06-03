@@ -14,7 +14,7 @@
     /* --accent: #7b5a36; */
     --accent: #222222;
 
-    --heading-scale: 1;
+    --heading-scale: 0.9;
 
     --body-font: 'IBM Plex Sans', sans-serif;
     /* --heading-font: 'VT323', monospace; */
@@ -27,6 +27,8 @@
     --nav-spacing: 0em;
 
     --muted-text: rgba(44, 36, 29, 0.65);
+
+    --navbar-bg: #fffaf1;
 }
 
 /* =========================================
@@ -48,7 +50,7 @@
     --heading-font: 'VT323', monospace;
 
     --heading-font: 'VT323', monospace;
-    --heading-scale: 1.25;
+    --heading-scale: 1.;
     /* tweak until it matches */
 }
 
@@ -65,7 +67,7 @@
 
     --body-font: 'IBM Plex Sans', sans-serif;
     --heading-font: 'IBM Plex Sans', sans-serif;
-    --heading-scale: 0.5;
+    /* --heading-scale: 0.5; */
 }
 
 [data-theme="dark-gray"] {
@@ -97,7 +99,7 @@
     --heading-font: 'IBM Plex Mono', monospace;
 
     /* use the same sizing and spacing as the light theme */
-    --heading-scale: 1;
+    --heading-scale: 0.9;
     --heading-spacing: 0.04em;
     --nav-spacing: 0em;
 }
@@ -174,7 +176,7 @@ body {
     /* font-family: 'VT323', monospace; */
     font-family: var(--heading-font);
 
-    font-size: 2rem;
+    font-size: 1.5rem;
 
     text-decoration: none;
 
@@ -316,7 +318,6 @@ h3 {
 
     display: inline-block;
 
-    /* font-family: 'VT323', monospace; */
     font-family: var(--heading-font);
 
     font-size: 1rem;
@@ -326,6 +327,12 @@ h3 {
     color: var(--accent);
 
     margin-bottom: 0.5rem;
+}
+
+.post-tag::before {
+    content: "#";
+    opacity: 0.7;
+    margin-right: -0.5rem;
 }
 
 /* =========================================
