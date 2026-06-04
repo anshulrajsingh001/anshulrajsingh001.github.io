@@ -965,10 +965,97 @@ p {
 }
 
 /* =========================================
+   NOTES LIST  
+========================================= */
+
+.notes-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+
+    margin-top: 2rem;
+}
+
+.notes-list h2 {
+    font-family: var(--heading-font);
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    opacity: 0.65;
+
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+
+    padding-bottom: 0.4rem;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.notes-list ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.notes-list li {
+    position: relative;
+
+    padding-left: 1rem;
+    margin-bottom: 0.35rem;
+
+    font-weight: 400;
+}
+
+.notes-list li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    opacity: 0.7;
+    color: var(--muted-text);
+}
+
+.notes-list a {
+    text-decoration: none;
+}
+
+.notes-list li > a:first-child {
+    color: var(--text);
+    font-weight: 400;
+}
+
+.notes-list li > a:last-child {
+    margin-left: 0.4rem;
+
+    color: var(--accent);
+
+    opacity: 0.7;
+
+    font-size: 0.9rem;
+
+    font-weight: 400;
+}
+
+.notes-list li > a:first-child:hover {
+    color: var(--accent);
+}
+
+.notes-list li > a:last-child:hover {
+    opacity: 1;
+}
+
+/* =========================================
    MOBILE
 ========================================= */
 
 @media (max-width: 700px) {
+
+    .notes-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 
     .nav-inner {
         display: flex;
@@ -1192,84 +1279,4 @@ p {
 
     border-right: 2px solid #9a816d;
     border-bottom: 2px solid #9a816d;
-}
-
-
-/* =========================================
-   NOTES LIST  
-========================================= */
-
-.notes-list {
-    margin-top: 2.5rem;
-    max-width: 650px;
-}
-
-.notes-list h2 {
-    font-family: var(--heading-font);
-
-    font-size: 0.9rem;
-    font-weight: 700;
-
-    letter-spacing: 0.12em;
-
-    opacity: 0.65;
-
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-
-    padding-bottom: 0.4rem;
-
-    border-bottom: 1px solid var(--border);
-}
-
-.notes-list ul {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-}
-
-.notes-list li {
-    position: relative;
-
-    padding-left: 1rem;
-    margin-bottom: 0.35rem;
-
-    font-weight: 400;
-}
-
-.notes-list li::before {
-    content: "-";
-    position: absolute;
-    left: 0;
-    opacity: 0.7;
-    color: var(--muted-text);
-}
-
-.notes-list a {
-    text-decoration: none;
-}
-
-.notes-list li > a:first-child {
-    color: var(--text);
-    font-weight: 400;
-}
-
-.notes-list li > a:last-child {
-    margin-left: 0.4rem;
-
-    color: var(--accent);
-
-    opacity: 0.7;
-
-    font-size: 0.9rem;
-
-    font-weight: 400;
-}
-
-.notes-list li > a:first-child:hover {
-    color: var(--accent);
-}
-
-.notes-list li > a:last-child:hover {
-    opacity: 1;
 }
