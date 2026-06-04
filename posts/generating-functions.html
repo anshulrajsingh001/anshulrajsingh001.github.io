@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="dark-gray" lang="en">
 
 <head>
 
@@ -27,9 +27,16 @@
 <body>
 
     <nav class="navbar">
+        <div class="nav-inner">
 
-        <a href="../index.html">HOME</a>
+            <div class="nav-left">
+                <a href="index.html">HOME</a>
+                <a href="notes.html">NOTES</a>
+                <a href="about.html">ABOUT</a>
+            </div>
 
+            <button id="theme-toggle" class="theme-toggle">◐</button>
+        </div>
     </nav>
 
     <div class="container">
@@ -53,7 +60,7 @@
 
                 <h1>Generating Functions</h1>
 
-                <p class="post-date">
+                <p class="post-date-small">
                     May 29, 2026
                 </p>
 
@@ -99,6 +106,31 @@
             .then(data => {
                 document.getElementById('footer').innerHTML = data;
             });
+    </script>
+
+    <script>
+        const toggle = document.getElementById("theme-toggle");
+
+        // load saved theme or default
+        const savedTheme = localStorage.getItem("theme") || "light-gray";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+
+        updateIcon(savedTheme);
+
+        toggle.addEventListener("click", () => {
+            const current = document.documentElement.getAttribute("data-theme");
+
+            const next = current === "light-gray" ? "dark-gray" : "light-gray";
+
+            document.documentElement.setAttribute("data-theme", next);
+            localStorage.setItem("theme", next);
+
+            updateIcon(next);
+        });
+
+        function updateIcon(theme) {
+            toggle.textContent = theme === "dark-gray" ? "◑" : "◐";
+        }
     </script>
 
 </body>
