@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Sans:wght@500;600;700&display=swap');
-@import url('https://cdn.jsdelivr.net/npm/computer-modern-web-font@1.0.0/fonts.css');
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Sans:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;450;500;600;700&display=swap');
 
 /* adding a scrollbar to prevent layout shift when it appears */
 html {
@@ -358,206 +355,6 @@ h3 {
 }
 
 /* =========================================
-   MATHEMATICAL ENVIRONMENTS
-========================================= */
-
-body {
-    counter-reset:
-        theorem lemma proposition corollary definition claim;
-}
-
-/* =========================================
-   BOXES
-========================================= */
-
-.theorem,
-.lemma,
-.proposition,
-.corollary,
-.definition,
-.remark,
-.claim {
-    margin: 1.2rem 0;
-    padding: 1rem 1.25rem;
-
-    background: var(--paper);
-    border: 2px solid rgba(123, 90, 54, 0.18);
-}
-
-.proof,
-.proof-claim {
-    margin: 1.2rem 0;
-    padding: 0;
-
-    background: none;
-}
-
-/* =========================================
-   NUMBERING
-========================================= */
-
-.theorem {
-    counter-increment: theorem;
-}
-
-.lemma {
-    counter-increment: lemma;
-}
-
-.proposition {
-    counter-increment: proposition;
-}
-
-.corollary {
-    counter-increment: corollary;
-}
-
-.definition {
-    counter-increment: definition;
-}
-
-.claim {
-    counter-increment: claim;
-}
-
-/* =========================================
-   LABELS
-========================================= */
-
-.theorem-label,
-.lemma-label,
-.proposition-label,
-.corollary-label,
-.definition-label,
-.claim-label,
-.remark-label,
-.proof-label,
-.proof-claim-label {
-    font-weight: bold;
-}
-
-/* =========================================
-   AUTOMATIC TITLES
-========================================= */
-
-.theorem-label::before {
-    content: "Theorem " counter(theorem) ". ";
-}
-
-.lemma-label::before {
-    content: "Lemma " counter(lemma) ". ";
-}
-
-.proposition-label::before {
-    content: "Proposition " counter(proposition) ". ";
-}
-
-.corollary-label::before {
-    content: "Corollary " counter(corollary) ". ";
-}
-
-.definition-label::before {
-    content: "Definition " counter(definition) ". ";
-}
-
-.claim-label::before {
-    content: "Claim " counter(claim) ". ";
-}
-
-.remark-label::before {
-    content: "Remark. ";
-}
-
-.proof-label::before {
-    content: "Proof. ";
-}
-
-.proof-claim-label::before {
-    content: "Proof of Claim. ";
-}
-
-/* =========================================
-   KEEP TEXT ON SAME LINE AS LABEL
-========================================= */
-
-.theorem p,
-.lemma p,
-.proposition p,
-.corollary p,
-.definition p,
-.claim>p:first-of-type,
-.remark p {
-    display: inline;
-    margin: 0;
-}
-
-.proof p,
-.proof-claim p {
-    display: inline;
-    margin: 0 0 1rem 0;
-}
-
-/* =========================================
-   QED BOX
-========================================= */
-
-.proof::after {
-
-    content: "□";
-
-    float: right;
-
-    color: var(--accent);
-
-    font-weight: bold;
-}
-
-.proof-claim::after {
-
-    content: "□";
-
-    float: right;
-
-    color: var(--accent);
-}
-
-.claim ol {
-
-    margin-top: 0.5rem;
-
-    padding-left: 2rem;
-}
-
-.claim li {
-
-    margin-bottom: 0.4rem;
-}
-
-.post-card p,
-.post-card li,
-.theorem p,
-.theorem li,
-.proof p,
-.proof li,
-.claim p,
-.claim li {
-
-    font-weight: 10;
-}
-
-.post-card,
-.theorem,
-.lemma,
-.definition,
-.proposition,
-.corollary,
-.claim {
-    background: var(--paper);
-    border: 1px solid var(--border);
-}
-
-
-/* =========================================
    LINKS
 ========================================= */
 
@@ -771,16 +568,12 @@ pre {
 }
 
 mjx-container {
-    font-size: 1.05em !important;
+    font-size: 1em !important;
     opacity: 1;
 }
 
 mjx-container[display="true"] {
     margin: 0.5rem 0;
-}
-
-mjx-container[jax="CHTML"] {
-    font-family: 'IBM Plex Sans', sans-serif !important;
 }
 
 p {
@@ -1279,4 +1072,213 @@ p {
 
     border-right: 2px solid #9a816d;
     border-bottom: 2px solid #9a816d;
+}
+
+/* =========================================
+   MATHEMATICAL ENVIRONMENTS
+========================================= */
+
+body {
+    counter-reset:
+        theorem lemma proposition corollary definition claim;
+}
+
+/* =========================================
+   BOXES
+========================================= */
+
+.theorem,
+.lemma,
+.proposition,
+.corollary,
+.definition,
+.remark,
+.claim {
+    margin: 1.2rem 0;
+    padding: 1rem 1.25rem;
+
+    background: var(--paper);
+    border: 2px solid rgba(123, 90, 54, 0.18);
+}
+
+.proof,
+.proof-claim {
+    margin: 1.2rem 0;
+    padding: 0;
+
+    background: none;
+}
+
+/* =========================================
+   NUMBERING
+========================================= */
+
+.theorem {
+    counter-increment: theorem;
+}
+
+.lemma {
+    counter-increment: lemma;
+}
+
+.proposition {
+    counter-increment: proposition;
+}
+
+.corollary {
+    counter-increment: corollary;
+}
+
+.definition {
+    counter-increment: definition;
+}
+
+.claim {
+    counter-increment: claim;
+}
+
+/* =========================================
+   LABELS
+========================================= */
+
+.theorem-label,
+.lemma-label,
+.proposition-label,
+.corollary-label,
+.definition-label,
+.claim-label,
+.remark-label,
+.proof-label,
+.proof-claim-label {
+    font-weight: bold;
+}
+
+/* =========================================
+   AUTOMATIC TITLES
+========================================= */
+
+.theorem-label::before {
+    content: "Theorem " counter(theorem) ". ";
+}
+
+.lemma-label::before {
+    content: "Lemma " counter(lemma) ". ";
+}
+
+.proposition-label::before {
+    content: "Proposition " counter(proposition) ". ";
+}
+
+.corollary-label::before {
+    content: "Corollary " counter(corollary) ". ";
+}
+
+.definition-label::before {
+    content: "Definition " counter(definition) ". ";
+}
+
+.claim-label::before {
+    content: "Claim " counter(claim) ". ";
+}
+
+.remark-label::before {
+    content: "Remark. ";
+}
+
+.proof-label::before {
+    content: "Proof. ";
+}
+
+.proof-claim-label::before {
+    content: "Proof of Claim. ";
+}
+
+/* =========================================
+   KEEP TEXT ON SAME LINE AS LABEL
+========================================= */
+
+.theorem p,
+.lemma p,
+.proposition p,
+.corollary p,
+.definition p,
+.claim>p:first-of-type,
+.remark p {
+    display: inline;
+    margin: 0;
+}
+
+.proof p,
+.proof-claim p {
+    display: inline;
+    margin: 0 0 1rem 0;
+}
+
+/* =========================================
+   QED BOX
+========================================= */
+
+.proof::after {
+
+    content: "□";
+
+    float: right;
+
+    color: var(--accent);
+
+    font-weight: bold;
+}
+
+.proof-claim::after {
+
+    content: "□";
+
+    float: right;
+
+    color: var(--accent);
+}
+
+.claim ol {
+
+    margin-top: 0.5rem;
+
+    padding-left: 2rem;
+}
+
+.claim li {
+
+    margin-bottom: 0.4rem;
+}
+
+.post-card p,
+.post-card li,
+.theorem p,
+.theorem li,
+.proof p,
+.proof li,
+.claim p,
+.claim li {
+
+    font-weight: 400;
+}
+
+.post-card,
+.theorem,
+.lemma,
+.definition,
+.proposition,
+.corollary,
+.claim {
+    background: var(--paper);
+    border: 1px solid var(--border);
+}
+
+.theorem,
+.lemma,
+.proposition,
+.corollary,
+.definition,
+.claim,
+.proof {
+    font-weight: 400;
 }

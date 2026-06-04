@@ -52,40 +52,46 @@
             </div>
         </div>
 
-        <p>
-            Morera's theorem is a converse to Cauchy's theorem. It states that if a continuous function has
-            vanishing contour integrals, then it is holomorphic.
-        </p>
-
-        <p>
+        <div class="theorem">
+            <span class="theorem-label"></span>
             Let $f: \Omega \to \mathbb{C}$ be a continuous function defined on an open set $\Omega \subset
             \mathbb{C}$. Suppose that for every piecewise $C^1$ closed curve $\gamma \subset \Omega$, we have
             \[
             \int_{\gamma} f(z)\,dz = 0.
             \]
-            Fix $z_0 \in \Omega$ and define
-            \[
-            F(z) = \int_{\gamma_{z_0,z}} f(w)\,dw,
-            \]
-            where $\gamma_{z_0,z}$ is any piecewise smooth path in $\Omega$ joining $z_0$ to $z$. The
-            assumption implies that $F$ is well-defined, since the integral is path-independent.
-        </p>
+            Then $f$ is holomorphic on $\Omega$.
+        </div>
 
-        <p>
-            Now let $h \to 0$ such that $z + h \in \Omega$. Then
-            \[
-            \frac{F(z+h) - F(z)}{h}
-            = \frac{1}{h} \int_{\gamma_{z,z+h}} f(w)\,dw.
-            \]
-            By continuity of $f$, we may write $f(w) = f(z) + \varepsilon(w)$, where $\varepsilon(w) \to 0$
-            as $w \to z$. Hence,
-            \[
-            \frac{F(z+h) - F(z)}{h}
-            = f(z) + \frac{1}{h} \int_{\gamma_{z,z+h}} \varepsilon(w)\,dw.
-            \]
-            The second term tends to $0$ as $h \to 0$, showing that $F'(z) = f(z)$. Therefore $f$ is
-            holomorphic on $\Omega$.
-        </p>
+        <div class="proof">
+            <span class="proof-label"></span>
+            Fix a point $z_0$ in $D$. Since $D$ is open and connected, for any point $z \in D$, we can define a function
+            $F(z)$ by the integral:
+            $$F(z) = \int_{z_0}^z f(\zeta) \, d\zeta$$
+            where the path of integration is any piecewise smooth path lying entirely within $D$. Because the integral
+            of $f(z)$ over any closed loop in $D$ is zero, the value of $F(z)$ does not depend on the specific path
+            chosen between $z_0$ and $z$. Thus, $F(z)$ is uniquely defined.
+
+            Now, let $z$ be any point in $D$. Since $D$ is open, there exists a neighborhood of $z$ contained entirely
+            within $D$. Let $z + h$ be a point in this neighborhood. We evaluate the difference:
+            $$F(z+h) - F(z) = \int_{z_0}^{z+h} f(\zeta) \, d\zeta - \int_{z_0}^z f(\zeta) \, d\zeta = \int_z^{z+h}
+            f(\zeta) \, d\zeta$$
+            where the path from $z$ to $z+h$ is taken as a straight line segment. We can rewrite the constant $f(z)$
+            using the identity:
+            $$f(z) = \frac{1}{h} \int_z^{z+h} f(z) \, d\zeta$$
+            Now, we look at the difference quotient minus $f(z)$:
+            $$\frac{F(z+h) - F(z)}{h} - f(z) = \frac{1}{h} \int_z^{z+h} [f(\zeta) - f(z)] \, d\zeta$$
+
+            Let $\epsilon > 0$. Since $f(z)$ is continuous at $z$, there exists a $\delta > 0$ such that if $|\zeta - z|
+            \lt \delta$, then $|f(\zeta) - f(z)| \lt \epsilon$. If we choose $|h| \lt \delta$, then every point $\zeta$
+            on the
+            straight line segment connecting $z$ and $z+h$ satisfies $|\zeta - z| \lt \delta$. Using the
+            ML-estimation lemma for contour integrals, where the length of the straight path is $|h|$: $$\left|
+            \frac{F(z+h) - F(z)}{h} - f(z) \right|=\left| \frac{1}{h} \int_z^{z+h} [f(\zeta) - f(z)] \, d\zeta
+            \right| \le \frac{1}{|h|} \cdot \epsilon \cdot |h|=\epsilon$$ Taking the limit as $h \to 0$, we get:
+            $$\lim_{h \to 0} \frac{F(z+h) - F(z)}{h}=f(z)$$ This proves that $F'(z)=f(z)$. Therefore, $F(z)$ is
+            analytic in $D$. Since the derivative of an analytic function is also analytic, $f(z)$ must be analytic
+            in $D$.
+        </div>
 
     </div>
 
