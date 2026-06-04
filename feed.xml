@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+
+<title>Anshul Math</title>
+
+<link>https://anshul.math</link>
+
+<description>
+Expository mathematics, geometry,
+complex analysis, algebra, and notes.
+</description>
+
+<item>
+    <title>Morera's Theorem</title>
+    <link>
+    https://anshul.math/posts/morera.html
+    </link>
+    <pubDate>
+    Fri, 29 May 2026 00:00:00 GMT
+    </pubDate>
+</item>
+
+<item>
+    <title>Generating Functions</title>
+    <link>
+    https://anshul.math/posts/generating-functions.html
+    </link>
+    <pubDate>
+    Fri, 29 May 2026 00:00:00 GMT
+    </pubDate>
+</item>
+
+</channel>
+
+</rss>
