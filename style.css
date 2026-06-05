@@ -442,8 +442,25 @@ pre {
 .hero {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 1rem;
     flex-wrap: wrap;
+}
+
+.hero-image {
+    flex-shrink: 0;
+}
+
+.hero-image img {
+    margin-top: 2rem;
+    width: 100px;
+    height: 100px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--border);
 }
 
 /* pixel art */
@@ -918,10 +935,19 @@ p {
     .hero {
 
         margin-top: clamp(1rem, 4vw, 2.5rem);
-
         flex-direction: column;
         align-items: flex-start;
         gap: 0rem;
+    }
+
+    .hero-image {
+        align-self: center;
+        margin-top: -2rem;
+    }
+
+    .hero-image img {
+        width: 110px;
+        height: 110px;
     }
 
     .site-header {
