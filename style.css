@@ -441,9 +441,9 @@ pre {
 
 .hero {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 3rem;
     flex-wrap: wrap;
 }
 
@@ -453,18 +453,17 @@ pre {
 
 .hero-image img {
     margin-top: 2rem;
-    width: 100px;
-    height: 100px;
+    width: 250px;
+    height: 300px;
 
     object-fit: cover;
 
-    border-radius: 50%;
+    border-radius: 0;
 
     border: 1px solid var(--border);
 }
 
 /* pixel art */
-
 .pixel-avatar {
 
     image-rendering: pixelated;
@@ -687,6 +686,7 @@ p {
 
 .site-header {
     margin: 2rem 0 1.2rem 0;
+    flex: 1;
 }
 
 .site-title {
