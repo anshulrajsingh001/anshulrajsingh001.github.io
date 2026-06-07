@@ -956,7 +956,8 @@ p {
 
     .hero-image {
         align-self: center;
-        margin-top: -2rem;
+        margin-top: -4rem;
+        margin-bottom: -1rem;
     }
 
     .hero-image img {
